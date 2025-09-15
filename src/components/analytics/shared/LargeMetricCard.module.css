@@ -1,0 +1,208 @@
+/* LargeMetricCard.module.css - Copy of the shared MetricCard */
+
+/* Large Display Mode Styles */
+.largeMetricCard {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 20px;
+  position: relative;
+  transition: all 0.3s ease;
+  border: none;
+  height: 310px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  overflow: hidden;
+  min-width: 280px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.largeMetricCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* Variant 1 - Default with gradient accent */
+.metricCardVariant1 {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(121, 213, 233, 0.05) 100%) !important;
+}
+
+.metricCardVariant1:hover {
+  border-color: rgba(121, 213, 233, 0.3);
+}
+
+/* Variant 2 - With side accent */
+.metricCardVariant2 {
+  border-left-width: 4px;
+  border-left-style: solid;
+  padding-left: 20px;
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(10px);
+}
+
+.metricCardVariant2:hover {
+  opacity: 0.95;
+}
+
+/* Variant 3 - With top accent and shadow */
+.metricCardVariant3 {
+  border-top-width: 3px;
+  border-top-style: solid;
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.metricCardVariant3:hover {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Header styles */
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cardTitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.optionsButton {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  opacity: 0.5;
+}
+
+.largeMetricCard:hover .optionsButton {
+  opacity: 1;
+}
+
+.optionsButton:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+}
+
+/* Value styles */
+.cardValue {
+  font-size: 36px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 4px 0 2px 0;
+  letter-spacing: -1px;
+  line-height: 1;
+}
+
+.cardSubtitle {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 12px;
+}
+
+/* Trend indicator */
+.trendIndicator {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.trendIndicator.positive {
+  color: #61bc8e;
+}
+
+.trendIndicator.negative {
+  color: #dc2626;
+}
+
+.trendIcon {
+  font-size: 16px;
+}
+
+.trendValue {
+  font-size: 14px;
+}
+
+/* Variant selector */
+.variantSelector {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.variantButton {
+  background: none;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 24px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.variantButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.variantButton.active {
+  background: #79d5e9;
+  color: #0f1419;
+  font-weight: 500;
+}
+
+/* Chart styles */
+.cardChart {
+  flex: 1;
+  margin: 0 -8px;
+  min-height: 80px;
+  max-height: 100px;
+  overflow: hidden;
+  position: relative;
+}
+
+.cardDateRange {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 4px;
+  padding: 0 8px;
+  opacity: 0.7;
+}

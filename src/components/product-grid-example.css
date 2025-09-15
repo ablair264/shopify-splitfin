@@ -1,0 +1,71 @@
+/* Example usage for Product Grid Layout with NewProductCard */
+
+/* 
+  To properly use the NewProductCard in a grid layout that prevents 
+  overlapping when the sidebar collapses, follow this structure:
+
+  1. Import both CSS files:
+     import './NewProductCard.css';
+     import '../styles/product-grid-layout.css';
+
+  2. Use one of these class names for your grid container:
+     - product-cards-container
+     - product-grid-view
+     - products-grid-container
+
+  Example JSX structure:
+*/
+
+/*
+<div className="products-section">
+  <div className="product-cards-container">
+    {products.map(product => (
+      <NewProductCard 
+        key={product.id}
+        product={product}
+        // ... other props
+      />
+    ))}
+  </div>
+</div>
+*/
+
+/* 
+  The grid will automatically adjust:
+  - 4 columns max on very large screens (1600px+)
+  - 3 columns on large screens (1200px-1599px)  
+  - 2 columns on medium screens (768px-1199px)
+  - 1 column on mobile (<768px)
+  
+  When the sidebar collapses, the grid won't expand beyond 4 columns
+  and cards will maintain their proper spacing.
+*/
+
+/* Additional container classes you can use: */
+
+/* If your app adds a class when sidebar collapses */
+.sidebar-collapsed .product-cards-container {
+  /* Grid constraints are already applied */
+}
+
+/* If your main content area has an 'expanded' class */
+.main-content.expanded .product-cards-container {
+  /* Grid constraints are already applied */
+}
+
+/* For custom implementations, you can also use: */
+.custom-product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1440px; /* Prevents too many columns */
+  margin: 0 auto;
+}
+
+/* Ensure no more than 4 columns */
+@media (min-width: 1400px) {
+  .custom-product-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

@@ -1,0 +1,1599 @@
+/* ViewOrder.module.css - Dark Theme Order Detail View */
+
+/* Container */
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg,#0f1419,#1a1f2a 50%,#2c3e50);
+  color: white;
+  padding: 1.6rem;
+  position: relative;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.6rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.headerLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.orderTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.orderTitle h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: white;
+}
+
+.headerActions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.backButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  font-size: 0.875rem;
+  backdrop-filter: blur(10px);
+}
+
+.backButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(-2px);
+}
+
+.actionButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(121, 213, 233, 0.3);
+  color: #79d5e9;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.875rem;
+  backdrop-filter: blur(10px);
+}
+
+.actionButton:hover {
+  background: rgba(121, 213, 233, 0.1);
+  border-color: #79d5e9;
+}
+
+.primaryButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #79d5e9 0%, #4daeac 100%);
+  border: none;
+  color: #0f1419;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  font-size: 0.875rem;
+}
+
+.primaryButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(121, 213, 233, 0.3);
+}
+
+.statusBadge {
+  padding: 0.375rem 0.875rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Progress Section */
+.progressSection {
+  margin-bottom: 2rem;
+  background: #1a1f2a;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.progressSection h3 {
+  margin: 0 0 1.5rem 0;
+  color: #79d5e9;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.progressSteps {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  position: relative;
+  overflow-x: auto;
+  padding: 0.5rem 0;
+}
+
+.progressStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  min-width: 120px;
+  position: relative;
+  z-index: 2;
+}
+
+.stepIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 0.75rem;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.progressStep.active .stepIcon {
+  background: rgba(121, 213, 233, 0.2);
+  color: #79d5e9;
+  border-color: #79d5e9;
+}
+
+.progressStep.current .stepIcon {
+  background: #79d5e9;
+  color: #0f1419;
+  border-color: #79d5e9;
+  box-shadow: 0 0 20px rgba(121, 213, 233, 0.5);
+}
+
+.stepLabel {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  line-height: 1.3;
+  font-weight: 500;
+}
+
+.progressStep.active .stepLabel {
+  color: #79d5e9;
+  font-weight: 600;
+}
+
+.stepConnector {
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  right: -50%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 1;
+}
+
+.stepConnector.active {
+  background: #79d5e9;
+  box-shadow: 0 0 10px rgba(121, 213, 233, 0.3);
+}
+
+/* Compact Progress Steps */
+.progressStepsCompact {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  margin-bottom: 2rem;
+  padding: 0.75rem 0;
+  overflow-x: auto;
+  position: relative;
+}
+
+.progressStepCompact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  min-width: 120px;
+  position: relative;
+  z-index: 2;
+}
+
+.stepIconCompact {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  flex-shrink: 0;
+}
+
+.progressStepCompact.active .stepIconCompact {
+  background: rgba(121, 213, 233, 0.2);
+  color: #79d5e9;
+  border-color: #79d5e9;
+}
+
+.progressStepCompact.current .stepIconCompact {
+  background: #22c55e;
+  color: white;
+  border-color: #22c55e;
+  box-shadow: 0 0 10px rgba(34, 197, 94, 0.3);
+}
+
+.progressStepCompact.current .stepLabelCompact {
+  color: #22c55e;
+  font-weight: 600;
+}
+
+.stepLabelCompact {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+  flex: 1;
+}
+
+.progressStepCompact.active .stepLabelCompact {
+  color: #79d5e9;
+  font-weight: 600;
+}
+
+.stepConnectorCompact {
+  position: absolute;
+  top: 16px;
+  left: calc(32px + 0.5rem);
+  width: calc(100% - 32px - 1rem);
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+  z-index: 0;
+}
+
+.stepConnectorCompact.active {
+  background: #79d5e9;
+}
+
+/* New Progress Design */
+.progressContainer {
+  background: #1a1f2a;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
+  position: relative;
+}
+
+.progressStepsNew {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.progressStepNew {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  position: relative;
+}
+
+.stepCircle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.stepCircle.completed {
+  background: #79d5e9;
+  border-color: #79d5e9;
+  color: #0f1419;
+}
+
+.stepCircle.current {
+  background: #22c55e;
+  border-color: #22c55e;
+  color: white;
+  box-shadow: 0 0 15px rgba(34, 197, 94, 0.4);
+}
+
+.stepNumber {
+  font-weight: 700;
+  font-size: 1rem;
+  color: inherit;
+}
+
+.stepLabelNew {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.progressBarContainer {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progressBarFill {
+  height: 100%;
+  background: linear-gradient(90deg, #79d5e9 0%, #4daeac 100%);
+  border-radius: 4px;
+  transition: width 0.6s ease;
+  box-shadow: 0 0 10px rgba(121, 213, 233, 0.3);
+}
+
+/* Content Grid */
+.contentGrid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 1.6rem;
+  margin-bottom: 1.6rem;
+}
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  background: #1a1f2a;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.2rem;
+  backdrop-filter: blur(10px);
+}
+
+.card h3 {
+  margin: 0 0 0.8rem 0;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.card h4 {
+  margin: 0.8rem 0 0.4rem 0;
+  color: #79d5e9;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* Info Grid */
+.infoGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.infoIcon {
+  color: #79d5e9;
+  font-size: 1rem;
+  width: 20px;
+  flex-shrink: 0;
+}
+
+.infoItem div {
+  flex: 1;
+}
+
+.infoItem label {
+  display: block;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.infoItem span {
+  color: white;
+  font-weight: 500;
+}
+
+/* Customer Info */
+.customerInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.customerHeader h4 {
+  margin: 0;
+  color: white;
+  font-size: 1.125rem;
+}
+
+.tradingName {
+  margin: 0.25rem 0 0 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.875rem;
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.875rem;
+}
+
+.contactItem svg {
+  color: #79d5e9;
+  font-size: 0.875rem;
+}
+
+.addressSection {
+  margin-top: 1rem;
+}
+
+.addressSection h5 {
+  margin: 0 0 0.5rem 0;
+  color: #79d5e9;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.address {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.address svg {
+  color: #79d5e9;
+  margin-top: 0.125rem;
+  flex-shrink: 0;
+}
+
+/* Shipment Info */
+.shipmentInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Package Info */
+.packageInfo {
+  margin-top: 1.5rem;
+}
+
+.packageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.courierLogo {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+.packageDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.875rem;
+}
+
+/* Map Container */
+.mapContainer {
+  width: 100%;
+  height: 200px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Tracking Info */
+.trackingInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.trackingInfo .label {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+.trackingInfo .value {
+  color: white;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+/* Invoices */
+.invoicesList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.invoiceItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease;
+  min-height: 100px;
+}
+
+.invoiceItem:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(121, 213, 233, 0.3);
+}
+
+.invoiceInfo {
+  flex: 1;
+}
+
+.invoiceHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.invoiceDate {
+  font-size: 1rem;
+  color: white;
+  font-weight: 600;
+}
+
+.invoiceDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.viewButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(121, 213, 233, 0.1);
+  border: 1px solid rgba(121, 213, 233, 0.3);
+  color: #79d5e9;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  align-self: flex-start;
+}
+
+.viewButton:hover {
+  background: rgba(121, 213, 233, 0.2);
+}
+
+/* Line Items */
+.lineItemsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.totalSummary {
+  color: #79d5e9;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.tabFilters {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 1rem;
+}
+
+.tabButton {
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.7);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.tabButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.tabButton.active {
+  background: rgba(121, 213, 233, 0.2);
+  border-color: #79d5e9;
+  color: #79d5e9;
+}
+
+.lineItemsTable {
+  margin-bottom: 1.5rem;
+}
+
+.tableHeader {
+  display: grid;
+  grid-template-columns: 2fr 1fr 0.5fr 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.tableBody {
+  display: flex;
+  flex-direction: column;
+}
+
+.tableRow {
+  display: grid;
+  grid-template-columns: 2fr 1fr 0.5fr 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.tableRow:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.itemInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.itemName {
+  color: white;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.brandName {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.75rem;
+}
+
+.sku code {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  color: #79d5e9;
+  border: 1px solid rgba(121, 213, 233, 0.2);
+}
+
+.quantity, .unitPrice, .totalPrice, .shipped {
+  color: white;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.itemStatus {
+  display: flex;
+  align-items: center;
+  font-size: 0.75rem;
+}
+
+.statusShipped {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  color: #22c55e;
+  font-weight: 500;
+}
+
+.statusPartial {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  color: #fbbf24;
+  font-weight: 500;
+}
+
+.statusPending {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 3rem 1rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+}
+
+.emptyState svg {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* Order Summary */
+.orderSummary {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.875rem;
+}
+
+.summaryTotal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 0.5rem;
+  color: #79d5e9;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+/* Notes */
+.notes {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 4px solid #79d5e9;
+}
+
+.notes p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+}
+
+/* Error States */
+.errorContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  padding: 2rem;
+}
+
+.errorContent {
+  text-align: center;
+  max-width: 400px;
+}
+
+.errorContent h2 {
+  margin: 1rem 0 0.5rem;
+  color: white;
+}
+
+.errorContent p {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 2rem;
+}
+
+.errorActions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.retryButton {
+  background: linear-gradient(135deg, #79d5e9 0%, #4daeac 100%);
+  border: none;
+  color: #0f1419;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.retryButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(121, 213, 233, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .contentGrid {
+    grid-template-columns: 350px 1fr;
+  }
+}
+
+@media (max-width: 968px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  .contentGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .headerActions {
+    align-self: stretch;
+    justify-content: flex-end;
+  }
+  
+  .progressSteps {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .progressStep {
+    flex-direction: row;
+    min-width: auto;
+    width: 100%;
+  }
+  
+  .stepConnector {
+    display: none;
+  }
+  
+  .tableHeader {
+    display: none;
+  }
+  
+  .tableRow {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .tableRow:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+}
+
+@media (max-width: 640px) {
+  .orderTitle {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .orderTitle h1 {
+    font-size: 1.5rem;
+  }
+  
+  .headerActions {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .tabFilters {
+    flex-wrap: wrap;
+  }
+  
+  .progressStep {
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Modal Styles */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.modalContent {
+  background: #1a1a1a;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modalHeader h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.closeButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.modalBody {
+  padding: 1.5rem;
+}
+
+.modalFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  gap: 1rem;
+}
+
+.modalActions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+/* Form Styles */
+.formGroup {
+  margin-bottom: 1.5rem;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.formInput,
+.formSelect,
+.formTextarea {
+  width: 100%;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: white;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.formInput:focus,
+.formSelect:focus,
+.formTextarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.formTextarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Line Items Edit */
+.lineItemsEdit {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.lineItemRow {
+  display: grid;
+  grid-template-columns: 2fr 100px 120px 150px;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.lineItemRow:last-child {
+  border-bottom: none;
+}
+
+.itemName {
+  font-weight: 600;
+  color: white;
+}
+
+.quantityEdit,
+.priceEdit {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.quantityEdit label,
+.priceEdit label {
+  font-size: 0.8rem;
+  margin-bottom: 0.25rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.quantityEdit input,
+.priceEdit input {
+  margin-bottom: 0;
+}
+
+.totalPrice {
+  text-align: right;
+  font-weight: 600;
+  color: #10b981;
+}
+
+/* Button Variants */
+.primaryButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.primaryButton:hover:not(:disabled) {
+  background: #2563eb;
+  transform: translateY(-1px);
+}
+
+.primaryButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.secondaryButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.secondaryButton:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.secondaryButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.cancelButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: #dc2626;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cancelButton:hover:not(:disabled) {
+  background: #b91c1c;
+  transform: translateY(-1px);
+}
+
+.dangerButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: #dc2626;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dangerButton:hover:not(:disabled) {
+  background: #b91c1c;
+  transform: translateY(-1px);
+}
+
+.dangerButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Warning Message */
+.warningMessage {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: rgba(251, 191, 36, 0.1);
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  color: #fbbf24;
+}
+
+.warningMessage p {
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Extended Form Styles */
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+.formCheckbox {
+  width: auto !important;
+  margin-right: 0.5rem;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.checkboxLabel span {
+  font-size: 0.9rem;
+}
+
+/* Address Styles */
+.addressSection {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+}
+
+.addressSection h3 {
+  margin: 0 0 1.5rem 0;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.addressRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.addressColumn h4 {
+  margin: 0 0 1rem 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+}
+
+.addressHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.copyAddressBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.5rem 0.75rem;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 6px;
+  color: #3b82f6;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.copyAddressBtn:hover {
+  background: rgba(59, 130, 246, 0.2);
+  border-color: rgba(59, 130, 246, 0.5);
+}
+
+/* Items Section */
+.itemsSection {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+}
+
+.itemsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.itemsHeader h3 {
+  margin: 0;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.addItemBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.addItemBtn:hover {
+  background: #059669;
+  transform: translateY(-1px);
+}
+
+/* Item Search */
+.itemSearch {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.searchInput {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.searchInput svg {
+  position: absolute;
+  left: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+}
+
+.searchInput input {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
+.closeSearchBtn {
+  position: absolute;
+  right: 0.5rem;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.closeSearchBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.searchResults {
+  margin-top: 0.5rem;
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.searchResultItem {
+  padding: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.searchResultItem:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.searchResultItem:last-child {
+  border-bottom: none;
+}
+
+.searchResultItem .itemName {
+  font-weight: 600;
+  color: white;
+  margin-bottom: 0.25rem;
+}
+
+.searchResultItem .itemDetails {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.searchResultItem .sku {
+  font-family: monospace;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.125rem 0.375rem;
+  border-radius: 3px;
+}
+
+.searchResultItem .brand {
+  color: #10b981;
+}
+
+.searchResultItem .price {
+  color: #3b82f6;
+  font-weight: 600;
+}
+
+/* Updated Line Item Row */
+.lineItemRow {
+  display: grid;
+  grid-template-columns: 2fr 100px 120px 150px 40px;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.itemInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.newBadge {
+  display: inline-block;
+  background: #10b981;
+  color: white;
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 0.125rem 0.375rem;
+  border-radius: 3px;
+  margin-left: 0.5rem;
+}
+
+.itemActions {
+  display: flex;
+  justify-content: center;
+}
+
+.removeItemBtn {
+  background: #dc2626;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.375rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.removeItemBtn:hover {
+  background: #b91c1c;
+  transform: scale(1.1);
+}
+
+.emptyItems {
+  text-align: center;
+  padding: 2rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.orderTotal {
+  text-align: right;
+  padding: 1rem;
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+  margin-top: 1rem;
+  color: white;
+  font-size: 1.1rem;
+}
+
+/* Mobile Modal Styles */
+@media (max-width: 768px) {
+  .modalContent {
+    margin: 0.5rem;
+    max-height: 95vh;
+  }
+  
+  .modalHeader,
+  .modalBody,
+  .modalFooter {
+    padding: 1rem;
+  }
+  
+  .modalFooter {
+    flex-direction: column-reverse;
+    gap: 0.75rem;
+  }
+  
+  .modalActions {
+    width: 100%;
+    justify-content: stretch;
+  }
+  
+  .modalActions button {
+    flex: 1;
+  }
+  
+  .formRow {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .addressRow {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .addressSection,
+  .itemsSection {
+    padding: 1rem;
+    margin: 1rem 0;
+  }
+  
+  .lineItemRow {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .totalPrice {
+    text-align: left;
+  }
+  
+  .orderTotal {
+    text-align: center;
+  }
+}

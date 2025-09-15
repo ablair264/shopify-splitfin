@@ -1,0 +1,403 @@
+/* Analytics Container */
+.analytics-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: linear-gradient(135deg,#0f1419,#1a1f2a 50%,#2c3e50);
+}
+
+.analytics-page {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.analytics-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.5rem;
+  padding-top: 0;
+}
+
+/* Main Content Grid - Metrics and Activities Side by Side */
+.main-content-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  align-items: start;
+}
+
+/* Metrics Section */
+.metrics-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.metrics-grid-reduced {
+  display: grid;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.metrics-grid-reduced.full {
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: minmax(280px, auto);
+  align-items: stretch;
+}
+
+.metrics-grid-reduced.compact {
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: minmax(120px, auto);
+  align-items: stretch;
+}
+
+/* Activities Section */
+.activities-section {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Recent Activities Card */
+.recent-activities-card,
+.sales-team-card {
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid var(--border-primary);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.card-header {
+  margin-bottom: 1rem;
+}
+
+.card-title {
+  margin: 0 0 0.25rem 0;
+  color: var(--text-primary);
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.card-subtitle {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.loading-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  padding: 2rem;
+}
+
+/* Make Recent Activities match height of full 4-card grid */
+.activities-section .recent-activities-card {
+  height: 680px; /* Increased to match full 4-card grid height */
+  max-height: 680px;
+}
+
+.activities-section.compact .recent-activities-card {
+  height: 320px; /* Increased for compact mode to match grid */
+  max-height: 320px;
+}
+
+.recent-activities-table {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* Activities Simple Styling */
+.activities-simple {
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  padding: 0 20px;
+  position: relative;
+}
+
+.activities-simple::-webkit-scrollbar { /* WebKit */
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+/* Timeline line that runs down the left side connecting icons */
+.activities-simple::before {
+  content: '';
+  position: absolute;
+  left: 109px; /* Center of icon circles */
+  top: 108px; /* Start after first icon center */
+  height: calc(var(--activity-count, 6) * 160px - 80px); /* Dynamic height based on activity count */
+  width: 3px;
+  background: rgba(255, 255, 255, 0.2);
+  z-index: 0; /* Behind everything */
+}
+
+.activity-item {
+  position: relative;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.activity-item:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
+.activity-time {
+  font-size: 12px;
+  font-weight: 500;
+  color: #ffffff !important;
+  opacity: 0.7;
+}
+
+.activity-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.activity-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%; /* Make it circular */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 24px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  z-index: 2; /* Above timeline and cards */
+  position: relative;
+  align-self: flex-start;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+}
+
+.activity-card {
+  background: #3a4553;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  margin-top: -36px; /* Overlap with icon */
+  padding-top: 36px; /* Space for overlapped icon */
+  z-index: 1; /* Above timeline */
+  position: relative;
+}
+
+.activity-item:hover .activity-card {
+  background: #404a59;
+  transform: translateX(2px);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.activity-main {
+  padding: 16px 24px; /* Reduced from 20px to 16px */
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+}
+
+.activity-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  position: absolute;
+  top: 16px;
+  right: 24px;
+}
+
+.activity-info {
+  flex: 1;
+}
+
+.activity-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 4px 0;
+  line-height: 1.2;
+}
+
+.activity-company {
+  font-size: 16px;
+  margin: 0;
+  opacity: 0.7;
+  line-height: 1.3;
+}
+
+.activity-amount {
+  font-size: 24px; /* Reduced from 28px */
+  font-weight: 700;
+  color: #22c55e;
+  margin: 0;
+}
+
+.see-more-button {
+  font-family: inherit;
+}
+
+.see-more-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+}
+
+/* Legacy Metrics Grid (keeping for backward compatibility) */
+.metrics-grid {
+  display: grid;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  align-items: start;
+}
+
+.metrics-grid.full {
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(280px, auto);
+  align-items: stretch;
+}
+
+.metrics-grid.compact {
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(120px, auto);
+  align-items: stretch;
+}
+
+/* Full Graph Section */
+.full-graph-section {
+  margin-bottom: 2rem;
+}
+
+/* Table Section */
+.table-section {
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid var(--border-primary);
+}
+
+.table-section h3 {
+  margin: 0 0 1rem 0;
+  color: var(--text-primary);
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 1400px) {
+  /* Main content grid becomes stacked on medium screens */
+  .main-content-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .metrics-grid-reduced.full {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .metrics-grid-reduced.compact {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* Legacy grids */
+  .metrics-grid.full {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .metrics-grid.compact {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .metrics-grid-reduced.full,
+  .metrics-grid-reduced.compact {
+    grid-template-columns: 1fr;
+  }
+  
+  .metrics-grid.full,
+  .metrics-grid.compact {
+    grid-template-columns: 1fr;
+  }
+  
+  .analytics-content {
+    padding: 1rem;
+  }
+  
+  .main-content-grid {
+    gap: 1rem;
+  }
+}
+
+/* SplitfinUI CSS Variables - Based on Documentation */
+.analytics-container {
+  /* Layout Variables */
+  --layout-bg-primary: var(--bg-primary, #1a1f2a);
+  --layout-bg-secondary: var(--bg-secondary, #2c3e50);
+  --layout-bg-tertiary: #34495e;
+  --layout-sidebar-bg: var(--bg-secondary, #1a1f2a);
+  
+  /* Text Variables */
+  --layout-text-primary: var(--text-primary, #ffffff);
+  --layout-text-secondary: var(--text-secondary, rgba(255, 255, 255, 0.7));
+  --layout-text-muted: var(--text-muted, rgba(255, 255, 255, 0.5));
+  
+  /* Border Variables */
+  --layout-border: var(--border-primary, rgba(255, 255, 255, 0.05));
+  --layout-border-hover: rgba(255, 255, 255, 0.1);
+  
+  /* Accent Variables */
+  --layout-accent: var(--color-accent, #79d5e9);
+  --layout-accent-hover: #5856eb;
+  
+  /* Shadow Variables */
+  --layout-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  
+  /* Spacing Variables */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  
+  /* Card Variables */
+  --card-bg: var(--layout-bg-secondary);
+  --card-border: var(--layout-border);
+  --card-shadow: var(--layout-shadow);
+  --card-radius: 12px;
+  
+  /* Chart Variables */
+  --chart-grid: rgba(255, 255, 255, 0.1);
+  --chart-text: var(--layout-text-secondary);
+  
+  /* Legacy Variables for compatibility */
+  --primary-color: var(--color-accent, #79d5e9);
+  --primary-dark: var(--bg-secondary, #1a1f2a);
+  --secondary-color: #4daeac;
+  --accent-color: #61bc8e;
+  --accent-cta: #fbbf24;
+  --background-light: var(--bg-primary, #0f1419);
+  --background-white: var(--bg-secondary, #1a1f2a);
+  --border-color: var(--border-primary, rgba(255, 255, 255, 0.1));
+  --hover-bg: var(--bg-hover, rgba(255, 255, 255, 0.05));
+  --error-color: var(--color-error, #dc2626);
+  --success-color: #61bc8e;
+  --warning-color: #fbbf24;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 4px 6px rgba(0, 0, 0, 0.3);
+}

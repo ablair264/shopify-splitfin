@@ -1,0 +1,609 @@
+.container {
+  min-height: 100vh;
+  color: #ffffff;
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg,#0f1419,#1a1f2a 50%,#2c3e50);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.pageTitle {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+  background: linear-gradient(135deg, #79d5e9 0%, #4daeac 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.pageDescription {
+  font-size: 0.95rem;
+  color: #94a3b8;
+  margin: 0 0 2rem 0;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* ======================
+   OVERVIEW SECTION - Header + Quick Actions
+   ====================== */
+.overviewSection {
+  margin-bottom: 2rem;
+}
+
+/* ======================
+   METRICS SECTION - 6 Metric Cards
+   ====================== */
+.metricsSection {
+  margin-bottom: 2rem;
+}
+
+.quickActionsPanel {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.75rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.quickActionsPanel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #79d5e9, #4daeac, #06b6d4);
+}
+
+.sectionTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin: 0 0 0.5rem 0;
+}
+
+.sectionSubtitle {
+  font-size: 0.875rem;
+  color: #94a3b8;
+  margin: 0 0 1.5rem 0;
+  font-weight: 400;
+}
+
+.horizontalButtons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.horizontalButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  padding: 0.75rem 0.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  min-height: 60px;
+  max-height: 60px;
+}
+
+.horizontalButton span {
+  font-size: 0.65rem;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.horizontalButton .buttonIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.metricsGrid {
+  /* InventoryMetricCards component will handle its own grid */
+}
+
+/* ======================
+   MIDDLE SECTION - Brand Bars (25%) + Table (75%)
+   ====================== */
+.middleSection {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.brandShareWrapper,
+.trendChartWrapper {
+  /* Child components handle their own styling */
+}
+
+/* ======================
+   TABLE SECTION - Full Width
+   ====================== */
+.tableSection {
+  margin-bottom: 2rem;
+}
+
+/* ======================
+   TOOLS SECTION - Full Width Inventory Tools
+   ====================== */
+.toolsSection {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.toolsSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #79d5e9, #4daeac, #06b6d4);
+}
+
+.toolsHeader {
+  margin-bottom: 1.5rem;
+}
+
+.toolsGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+}
+
+.toolButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  padding: 1.25rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: none;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: center;
+  min-height: 80px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.toolButton span {
+  white-space: nowrap;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.toolButton .buttonIcon {
+  flex-shrink: 0;
+}
+
+.overlayText {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.85);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  text-align: center;
+  padding: 0.5rem;
+  line-height: 1.3;
+}
+
+.toolButton:hover .overlayText {
+  opacity: 1;
+}
+
+/* Button Color Schemes */
+.createSingle {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.15);
+}
+
+.uploadFile {
+  background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+  color: white;
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.15);
+}
+
+.externalConnect {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  color: white;
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.15);
+}
+
+.productManager {
+  background: rgba(121, 213, 233, 0.1);
+  color: #79d5e9;
+  border: 1px solid rgba(121, 213, 233, 0.3);
+  box-shadow: none;
+}
+
+.stockManager {
+  background: rgba(77, 174, 172, 0.1);
+  color: #4daeac;
+  border: 1px solid rgba(77, 174, 172, 0.3);
+}
+
+.warehousing {
+  background: rgba(247, 125, 17, 0.1);
+  color: #f77d11;
+  border: 1px solid rgba(247, 125, 17, 0.3);
+}
+
+.couriers {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.stocklists {
+  background: rgba(139, 92, 246, 0.1);
+  color: #8b5cf6;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.overview {
+  background: rgba(6, 182, 212, 0.1);
+  color: #06b6d4;
+  border: 1px solid rgba(6, 182, 212, 0.3);
+}
+
+.horizontalButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.toolButton:hover {
+  background: rgba(255, 255, 255, 0.06) !important;
+  transform: scale(1.02);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.horizontalButton:active,
+.toolButton:active {
+  transform: translateY(-1px) scale(1.01);
+}
+
+/* ======================
+   RESPONSIVE DESIGN
+   ====================== */
+
+/* iPad and Large Tablets */
+@media (max-width: 1366px) and (min-width: 769px) {
+  .topSection {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .quickActionsPanel {
+    order: 2;
+  }
+  
+  .metricsGrid {
+    order: 1;
+  }
+  
+  .middleSection {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .brandShareWrapper {
+    min-height: 320px;
+  }
+  
+  .trendChartWrapper {
+    min-height: 320px;
+  }
+  
+  .tableSection {
+    margin-top: 1.5rem;
+  }
+  
+  .toolsGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+  }
+  
+  .toolButton {
+    min-height: 70px;
+    padding: 1rem 0.75rem;
+    font-size: 0.75rem;
+  }
+  
+  .toolButton span {
+    font-size: 0.75rem;
+  }
+  
+  .toolButton .buttonIcon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Small Tablets */
+@media (max-width: 768px) {
+  .topSection {
+    grid-template-columns: 1fr;
+  }
+  
+  .middleSection {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .toolsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+  
+  .toolButton {
+    min-height: 60px;
+    padding: 0.75rem 0.5rem;
+    font-size: 0.7rem;
+  }
+  
+  .toolButton span {
+    font-size: 0.7rem;
+  }
+  
+  .overlayText {
+    font-size: 0.65rem;
+    padding: 0.25rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  .pageHeader h1 {
+    font-size: 1.25rem;
+  }
+  
+  .toolsGrid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .toolButton {
+    flex-direction: row;
+    justify-content: flex-start;
+    min-height: 50px;
+    gap: 0.75rem;
+    text-align: left;
+    padding: 0.75rem 1rem;
+  }
+  
+  .toolButton span {
+    font-size: 0.875rem;
+    text-align: left;
+  }
+  
+  .overlayText {
+    display: none;
+  }
+  
+  .horizontalButtons {
+    gap: 0.5rem;
+  }
+  
+  .horizontalButton {
+    padding: 0.75rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* ======================
+   MODERN LAYOUT STYLES
+   ====================== */
+
+.modernHeader {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(121, 213, 233, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.titleSection {
+  flex: 1;
+}
+
+.actionCards {
+  display: flex;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.actionCard {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(121, 213, 233, 0.3);
+  border-radius: 8px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+  min-width: 140px;
+}
+
+.actionCard:hover {
+  background: rgba(121, 213, 233, 0.1);
+  border-color: #79d5e9;
+  transform: translateY(-1px);
+}
+
+.actionIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #79d5e9, #4daeac);
+}
+
+.actionContent h4 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin: 0;
+  color: #ffffff;
+}
+
+.actionContent span {
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+.metricsGrid {
+  /* Let the InventoryMetricCards handle its own layout */
+}
+
+.analyticsRow {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1.5rem;
+}
+
+.brandShareCard, .trendCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(121, 213, 233, 0.2);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.tableCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(121, 213, 233, 0.2);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.toolsCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(121, 213, 233, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.toolsHeader {
+  margin-bottom: 1rem;
+}
+
+.toolsHeader .sectionTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #79d5e9;
+  margin: 0;
+}
+
+.compactToolsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+}
+
+.toolItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.toolItem:hover {
+  background: rgba(121, 213, 233, 0.1);
+  border-color: #79d5e9;
+  transform: translateY(-1px);
+}
+
+.toolItem span {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .headerContent {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .actionCards {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .actionCard {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .analyticsRow {
+    grid-template-columns: 1fr;
+  }
+  
+  .compactToolsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

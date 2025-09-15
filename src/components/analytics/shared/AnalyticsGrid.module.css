@@ -1,0 +1,156 @@
+.grid {
+  display: grid;
+  width: 100%;
+}
+
+/* Grid Column Configurations */
+.grid1Col {
+  grid-template-columns: 1fr;
+}
+
+.grid2Col {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid3Col {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid4Col {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.gridAuto {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* Gap Sizes */
+.gapSmall {
+  gap: 12px;
+}
+
+.gapMedium {
+  gap: 20px;
+}
+
+.gapLarge {
+  gap: 28px;
+}
+
+/* Grid Item Base */
+.gridItem {
+  min-height: 0;
+  min-width: 0;
+}
+
+/* Column Span Classes */
+.colSpan1 {
+  grid-column: span 1;
+}
+
+.colSpan2 {
+  grid-column: span 2;
+}
+
+.colSpan3 {
+  grid-column: span 3;
+}
+
+.colSpan4 {
+  grid-column: span 4;
+}
+
+.colSpanFull {
+  grid-column: 1 / -1;
+}
+
+/* Row Span Classes */
+.rowSpan1 {
+  grid-row: span 1;
+}
+
+.rowSpan2 {
+  grid-row: span 2;
+}
+
+.rowSpan3 {
+  grid-row: span 3;
+}
+
+.rowSpan4 {
+  grid-row: span 4;
+}
+
+/* Responsive Behavior */
+.responsive.grid2Col {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.responsive.grid3Col {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.responsive.grid4Col {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Tablet breakpoint */
+@media (max-width: 1024px) {
+  .responsive.grid3Col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .responsive.grid4Col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .responsive .colSpan3,
+  .responsive .colSpan4 {
+    grid-column: span 2;
+  }
+}
+
+/* Mobile breakpoint */
+@media (max-width: 768px) {
+  .responsive.grid2Col,
+  .responsive.grid3Col,
+  .responsive.grid4Col {
+    grid-template-columns: 1fr;
+  }
+  
+  .responsive .colSpan1,
+  .responsive .colSpan2,
+  .responsive .colSpan3,
+  .responsive .colSpan4 {
+    grid-column: span 1;
+  }
+  
+  .responsive .rowSpan2,
+  .responsive .rowSpan3,
+  .responsive .rowSpan4 {
+    grid-row: span 1;
+  }
+  
+  .gapMedium {
+    gap: 16px;
+  }
+  
+  .gapLarge {
+    gap: 20px;
+  }
+}
+
+/* Small mobile breakpoint */
+@media (max-width: 480px) {
+  .gapSmall {
+    gap: 8px;
+  }
+  
+  .gapMedium {
+    gap: 12px;
+  }
+  
+  .gapLarge {
+    gap: 16px;
+  }
+}

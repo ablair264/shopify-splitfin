@@ -1,0 +1,465 @@
+/* MetricCard.module.css - Dark Theme */
+
+/* CSS Variables from dashboard.css */
+:root {
+  --primary-color: #79d5e9;
+  --primary-dark: #1a1f2a;
+  --secondary-color: #4daeac;
+  --accent-color: #61bc8e;
+  --accent-cta: #fbbf24;
+  --background-light: #0f1419;
+  --background-white: #1a1f2a;
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-light: #e5e7eb;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --hover-bg: rgba(255, 255, 255, 0.05);
+  --error-color: #dc2626;
+}
+
+/* Full Display Mode Styles */
+.metricCardFull {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 20px;
+  position: relative;
+  transition: all 0.3s ease;
+  border: none;
+  min-height: 280px;
+  max-height: 320px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  overflow: hidden;
+  min-width: 280px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.metricCardFull:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* Variant 1 - Glassmorphism with side accent line */
+.metricCardVariant1 {
+  background: rgba(var(--bg-secondary-rgb), 0.4) !important;
+  backdrop-filter: blur(12px);
+  border-left-width: 4px;
+  border-left-style: solid;
+  /* Don't set border-color here - let inline styles take precedence */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.metricCardVariant1:hover {
+  background: rgba(var(--bg-secondary-rgb), 0.5) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+/* Variant 2 - Clean with top accent */
+.metricCardVariant2 {
+  border-top-width: 4px;
+  border-top-style: solid;
+  /* Don't set border-top-color here - let inline styles take precedence */
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(10px);
+}
+
+.metricCardVariant2:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Variant 3 - Full border accent with area chart */
+.metricCardVariant3 {
+  border-width: 2px;
+  border-style: solid;
+  /* Don't set border-color here - let inline styles take precedence */
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.metricCardVariant3:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Header styles */
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cardTitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.optionsButton {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  opacity: 0.5;
+}
+
+.metricCardFull:hover .optionsButton {
+  opacity: 1;
+}
+
+.optionsButton:hover {
+  background: var(--hover-bg);
+  color: var(--text-primary);
+}
+
+/* Value styles */
+.cardValue {
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 16px 0 8px 0;
+  letter-spacing: -1px;
+  line-height: 1;
+}
+
+.cardSubtitle {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+/* Trend indicator */
+.trendIndicator {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.trendIndicator.positive {
+  color: var(--accent-color);
+}
+
+.trendIndicator.negative {
+  color: var(--error-color);
+}
+
+.trendIcon {
+  font-size: 16px;
+}
+
+.trendValue {
+  font-size: 14px;
+}
+
+/* Variant selector */
+.variantSelector {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+}
+
+.variantButton {
+  background: none;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 24px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.variantButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+}
+
+.variantButton.active {
+  background: var(--primary-color);
+  color: var(--background-light);
+  font-weight: 500;
+}
+
+/* Chart styles */
+.cardChart {
+  flex: 1;
+  margin: 16px -8px 0;
+  height: 80px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  min-height: 80px;
+}
+
+.cardDateRange {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 12px;
+  padding: 0 8px;
+  opacity: 0.8;
+}
+
+/* Compact Display Mode */
+.metricCardCompact {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: all 0.3s ease;
+  border: none;
+  height: 90px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.metricCardCompact:hover {
+  transform: translateY(-2px);
+  border-color: rgba(121, 213, 233, 0.3);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.compactIcon {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 20px;
+}
+
+.compactContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.compactValue {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.compactTitle {
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.compactTrend {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.compactTrend.positive {
+  color: var(--accent-color);
+  background: rgba(97, 188, 142, 0.1);
+}
+
+.compactTrend.negative {
+  color: var(--error-color);
+  background: rgba(220, 38, 38, 0.1);
+}
+
+/* Chart.js customization */
+.metricCardFull canvas,
+.metricCardCompact canvas {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+/* Grid layouts */
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 20px;
+  margin-top: 0;
+  padding: 0 20px;
+}
+
+.metricsGrid.compactGrid {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+/* Wide screen support - Progressive expansion */
+@media (min-width: 1600px) {
+  .metricCardFull {
+    min-width: 320px;
+  }
+  
+  .metricsGrid {
+    gap: 24px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .metricCardFull {
+    min-width: 360px;
+  }
+  
+  .cardValue {
+    font-size: 40px;
+  }
+}
+
+@media (min-width: 2560px) {
+  .metricCardFull {
+    min-width: 400px;
+  }
+  
+  .cardValue {
+    font-size: 44px;
+  }
+  
+  .metricsGrid {
+    gap: 32px;
+  }
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 1200px) {
+  .metricsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .metricsGrid,
+  .metricsGrid.compactGrid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .metricCardFull {
+    height: 220px;
+    padding: 16px;
+    min-width: unset;
+  }
+  
+  .cardValue {
+    font-size: 32px;
+  }
+  
+  .metricCardCompact {
+    height: 90px;
+    padding: 16px;
+    gap: 12px;
+  }
+  
+  .compactValue {
+    font-size: 24px;
+  }
+}
+
+/* Loading state */
+.metricCardFull.loading .cardValue,
+.metricCardCompact.loading .compactValue {
+  background: linear-gradient(90deg, #333 25%, #444 50%, #333 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s ease-in-out infinite;
+  color: transparent;
+  border-radius: 4px;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Display Mode Sizes - compact uses separate .metricCardCompact class */
+
+/* Medium size (default) */
+.metricCardFull.medium,
+.metricCardFull:not(.large):not(.compact) {
+  min-height: 280px !important;
+  max-height: 320px !important;
+  height: auto !important;
+  padding: 20px !important;
+}
+
+/* Large size */
+.metricCardFull.large {
+  min-height: 380px !important;
+  max-height: 420px !important;
+  height: auto !important;
+  padding: 24px !important;
+}
+
+.metricCardFull.large .cardValue {
+  font-size: 3rem !important;
+  font-weight: 800 !important;
+}
+
+.metricCardFull.large .cardTitle {
+  font-size: 1.25rem !important;
+  font-weight: 600 !important;
+}
+
+.metricCardFull.large .cardSubtitle {
+  font-size: 1rem !important;
+  margin-top: 8px !important;
+}
+
+.metricCardFull.large .cardChart {
+  height: 120px !important;
+  margin-top: 16px !important;
+}

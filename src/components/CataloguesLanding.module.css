@@ -1,0 +1,486 @@
+/* src/components/CataloguesLanding/CataloguesLanding.module.css */
+
+/* ============================================================
+   CATALOGUE LIBRARY - Dark Theme with Login Color Scheme
+   ============================================================ */
+
+.cataloguesPage {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f1419 0%, #1a1f2a 50%, #2c3e50 100%);
+  padding: 2rem;
+  animation: pageLoad 0.6s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated gradient overlay from login */
+.gradientOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    ellipse at 30% 40%,
+    rgba(121, 213, 233, 0.12) 0%,
+    transparent 40%
+  ),
+  radial-gradient(
+    ellipse at 70% 60%,
+    rgba(77, 174, 172, 0.08) 0%,
+    transparent 50%
+  );
+  animation: gradientPulse 20s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Floating accent element */
+.floatingAccent {
+  position: absolute;
+  top: 20%;
+  right: 15%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(
+    circle,
+    rgba(121, 213, 233, 0.1) 0%,
+    rgba(121, 213, 233, 0.05) 50%,
+    transparent 100%
+  );
+  border-radius: 50%;
+  filter: blur(40px);
+  animation: gentleFloat 20s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ============================================================
+   HEADER SECTION
+   ============================================================ */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto 3rem;
+  flex-wrap: wrap;
+  gap: 2rem;
+  position: relative;
+  z-index: 10;
+}
+
+.titleSection {
+  flex: 1;
+}
+
+.pageTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.5rem;
+  background: linear-gradient(135deg, #79d5e9 0%, #6bc7db 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.pageSubtitle {
+  font-size: 1.125rem;
+  color: #e5e7eb;
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* ============================================================
+   BOOKCASE DESIGN - Dark Theme
+   ============================================================ */
+.bookcase {
+  max-width: 1200px;
+  margin: 0 auto;
+  perspective: 1500px;
+  transform-style: preserve-3d;
+  position: relative;
+  z-index: 10;
+}
+
+.shelf {
+  position: relative;
+  margin-bottom: 4rem;
+  transform-style: preserve-3d;
+}
+
+.shelfBoard {
+  width: 100%;
+  height: 20px;
+  background: linear-gradient(
+    to bottom,
+    #1a1f2a 0%,
+    #0f1419 50%,
+    #0a0d12 100%
+  );
+  border-radius: 4px;
+  position: absolute;
+  bottom: -10px;
+  box-shadow: 
+    0 8px 16px rgba(0, 0, 0, 0.6),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(121, 213, 233, 0.1);
+  transform: rotateX(-5deg) translateZ(-10px);
+  z-index: 1;
+  border: 1px solid rgba(121, 213, 233, 0.1);
+}
+
+.shelfBoard::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 30px;
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 20, 25, 0.8) 0%,
+    transparent 100%
+  );
+  top: 100%;
+  left: 0;
+  transform: rotateX(90deg) translateZ(-15px);
+}
+
+.booksRow {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0 2rem 20px;
+  position: relative;
+  z-index: 2;
+}
+
+/* ============================================================
+   BOOK DESIGN - Dark Theme
+   ============================================================ */
+.book {
+  width: 180px;
+  height: 250px;
+  position: relative;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 4px 12px 12px 4px;
+  box-shadow: 
+    4px 4px 12px rgba(0, 0, 0, 0.5),
+    inset -2px 0 4px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(121, 213, 233, 0.05);
+  animation: bookSlide 0.6s ease both;
+  transform: rotateY(-5deg);
+  border: 1px solid rgba(121, 213, 233, 0.1);
+  overflow: hidden;
+}
+
+@keyframes bookSlide {
+  from {
+    opacity: 0;
+    transform: translateX(-50px) rotateY(-5deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) rotateY(-5deg);
+  }
+}
+
+.book:hover {
+  transform: translateY(-10px) rotateY(0deg) scale(1.05);
+  box-shadow: 
+    8px 16px 32px rgba(0, 0, 0, 0.6),
+    inset -2px 0 4px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(121, 213, 233, 0.2);
+  z-index: 10;
+  border-color: rgba(121, 213, 233, 0.3);
+}
+
+/* Book spine (visible part) */
+.bookSpine {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  color: white;
+  border-radius: 4px 12px 12px 4px;
+  background: inherit;
+  gap: 1rem;
+}
+
+.bookSpine::before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  bottom: 10%;
+  left: 12px;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    2px 0 2px rgba(0, 0, 0, 0.2),
+    4px 0 2px rgba(0, 0, 0, 0.2);
+}
+
+.bookSpine::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.3) 0%,
+    transparent 20%,
+    transparent 80%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.bookYear {
+  font-size: 0.875rem;
+  font-weight: 600;
+  opacity: 0.9;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Book logos */
+.logo,
+.logoInverted {
+  max-width: 120px;
+  max-height: 60px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+.logoInverted {
+  filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+/* Book cover (hover state) */
+.bookCover {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: rgba(0, 0, 0, 0.9);
+  border-radius: 4px 12px 12px 4px;
+  backdrop-filter: blur(10px);
+}
+
+.book:hover .bookCover {
+  opacity: 1;
+}
+
+.bookActions {
+  display: flex;
+  gap: 1rem;
+}
+
+.quickAction {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(121, 213, 233, 0.1);
+  border: 2px solid rgba(121, 213, 233, 0.3);
+  color: #79d5e9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.25rem;
+  backdrop-filter: blur(10px);
+}
+
+.quickAction:hover {
+  background: rgba(121, 213, 233, 0.2);
+  border-color: #79d5e9;
+  transform: scale(1.1);
+  color: #ffffff;
+  box-shadow: 0 0 20px rgba(121, 213, 233, 0.4);
+}
+
+/* Page turning effect */
+.pageTurn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(
+    -45deg,
+    rgba(121, 213, 233, 0.1) 0%,
+    rgba(121, 213, 233, 0.3) 50%,
+    rgba(121, 213, 233, 0.1) 100%
+  );
+  clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
+  opacity: 0;
+  transition: all 0.3s ease;
+  transform-origin: bottom left;
+  z-index: 3;
+}
+
+.book:hover .pageTurn {
+  opacity: 1;
+  transform: rotateZ(-15deg) scale(1.2);
+  box-shadow: 
+    -2px 2px 8px rgba(0, 0, 0, 0.3),
+    -1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes pageLoad {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes gradientPulse {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.1) rotate(180deg);
+    opacity: 1;
+  }
+}
+
+@keyframes gentleFloat {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.4;
+  }
+  33% {
+    transform: translate(30px, -20px) scale(1.05);
+    opacity: 0.6;
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.95);
+    opacity: 0.3;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN
+   ============================================================ */
+@media (max-width: 1200px) {
+  .booksRow {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .book {
+    width: 160px;
+    height: 230px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cataloguesPage {
+    padding: 1rem;
+  }
+
+  .header {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  .pageTitle {
+    font-size: 2rem;
+  }
+
+  .booksRow {
+    gap: 1rem;
+    padding: 0 1rem 20px;
+  }
+
+  .book {
+    width: 140px;
+    height: 200px;
+  }
+
+  .logo,
+  .logoInverted {
+    max-width: 100px;
+    max-height: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .booksRow {
+    gap: 0.75rem;
+  }
+
+  .book {
+    width: 110px;
+    height: 170px;
+  }
+
+  .bookYear {
+    font-size: 0.75rem;
+  }
+
+  .quickAction {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .pageTurn {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+/* ============================================================
+   ACCESSIBILITY
+   ============================================================ */
+.book:focus-visible,
+.quickAction:focus-visible {
+  outline: 3px solid #79d5e9;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cataloguesPage,
+  .book,
+  .pageTurn,
+  .gradientOverlay,
+  .floatingAccent {
+    animation: none;
+  }
+
+  .book,
+  .quickAction,
+  .pageTurn {
+    transition: none;
+  }
+}

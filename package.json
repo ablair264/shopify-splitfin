@@ -1,0 +1,86 @@
+{
+  "name": "splitfin-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@netlify/functions": "^4.2.5",
+    "@react-google-maps/api": "^2.20.7",
+    "@supabase/supabase-js": "^2.57.2",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.8.0",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.126",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@types/react-router-dom": "^5.3.3",
+    "@types/recharts": "^1.8.29",
+    "@zxing/library": "^0.21.3",
+    "axios": "^1.11.0",
+    "chart.js": "^4.5.0",
+    "csv-parser": "^3.2.0",
+    "csv-writer": "^1.6.0",
+    "exceljs": "^4.4.0",
+    "file-saver": "^2.0.5",
+    "firebase-admin": "^13.5.0",
+    "html2canvas": "^1.4.1",
+    "jsbarcode": "^3.12.1",
+    "jspdf": "^3.0.2",
+    "lottie-react": "^2.4.1",
+    "lucide-react": "^0.542.0",
+    "node-fetch": "^2.7.0",
+    "openai": "^5.20.2",
+    "react": "^19.1.1",
+    "react-chartjs-2": "^5.3.0",
+    "react-chatbot-kit": "^2.2.2",
+    "react-countup": "^6.5.3",
+    "react-dom": "^19.1.1",
+    "react-grid-layout": "^1.5.2",
+    "react-icons": "^5.5.0",
+    "react-modal": "^3.16.3",
+    "react-router-dom": "^7.8.2",
+    "react-scripts": "5.0.1",
+    "react-webcam": "^7.2.0",
+    "react-zxing": "^2.1.0",
+    "recharts": "^3.1.2",
+    "typescript": "^4.9.5",
+    "web-vitals": "^2.1.4",
+    "xlsx": "^0.18.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "create-shipments": "node scripts/create-shipments-from-orders.js",
+    "clean-csv": "node scripts/csv-cleaner.js"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "overrides": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/file-saver": "^2.0.7",
+    "@types/jsbarcode": "^3.11.4",
+    "@types/react-modal": "^3.16.3"
+  }
+}

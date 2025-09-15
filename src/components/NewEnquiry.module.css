@@ -1,0 +1,443 @@
+.newEnquiryContainer {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a1f2a 0%, #2c3e50 50%, #34495e 100%);
+  color: #f9fafb;
+  padding: 2rem;
+}
+
+.newEnquiryCard {
+  background: #161a23;
+  border: 0px solid rgba(75, 85, 99, 0.2);
+  border-radius: 12px;
+  padding: 0rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.newEnquiryForm {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.formSections {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.formSections .section:last-child {
+  grid-column: 1 / -1;
+}
+
+.header {
+  border-bottom: 1px solid rgba(75, 85, 99, 0.3);
+  padding: 0.75rem 1.5rem;
+  flex-shrink: 0;
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.headerContent h1 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #f9fafb;
+  margin: 0;
+}
+
+.closeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: 1px solid rgba(75, 85, 99, 0.3);
+  border-radius: 6px;
+  color: #9ca3af;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.closeButton:hover {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+.form {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.section {
+  border: 1px solid rgba(75, 85, 99, 0.3);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.section h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #50B9B7;
+  margin: 0 0 1.5rem 0;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(75, 85, 99, 0.3);
+}
+
+.formGroup {
+  margin-bottom: 1.25rem;
+}
+
+.formGroup:last-child {
+  margin-bottom: 0;
+}
+
+.formGroup label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #e5e7eb;
+  margin-bottom: 0.5rem;
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+  width: 100%;
+  background: rgba(31, 41, 55, 0.5);
+  border: 1px solid rgba(75, 85, 99, 0.3);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  color: #f9fafb;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+  outline: none;
+  border-color: #50B9B7;
+  box-shadow: 0 0 0 3px rgba(80, 185, 183, 0.1);
+}
+
+.formGroup input::placeholder {
+  color: #6b7280;
+}
+
+.formGroup textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.inputWithIcon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputWithIcon svg {
+  position: absolute;
+  left: 0.75rem;
+  color: #6b7280;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.inputWithIcon input {
+  padding-left: 2.75rem;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(75, 85, 99, 0.3);
+}
+
+.cancelButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  border: 1px solid rgba(75, 85, 99, 0.3);
+  border-radius: 8px;
+  color: #9ca3af;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cancelButton:hover:not(:disabled) {
+  background: rgba(75, 85, 99, 0.1);
+  border-color: #6b7280;
+  color: #e5e7eb;
+}
+
+.cancelButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.submitButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #448382 0%, #50B9B7 100%);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(68, 131, 130, 0.3);
+}
+
+.submitButton:hover:not(:disabled) {
+  background: linear-gradient(135deg, #3a6f6e 0%, #448382 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(68, 131, 130, 0.4);
+}
+
+.submitButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { 
+    transform: rotate(360deg); 
+  }
+}
+
+.errorAlert {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 6px;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  color: #ef4444;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .formSections {
+    grid-template-columns: 1fr;
+  }
+  
+  .formSections .section:last-child {
+    grid-column: 1;
+  }
+  
+  .newEnquiryCard {
+    max-width: 800px;
+  }
+  
+  .brandGrid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .newEnquiryContainer {
+    padding: 1rem;
+  }
+  
+  .newEnquiryCard {
+    padding: 1.5rem;
+  }
+  
+  .brandGrid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+  
+  .brandButton {
+    min-height: 80px;
+    padding: 0.5rem;
+  }
+  
+  .brandLogo,
+  .brandLogoFallback {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .brandName {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .headerContent h1 {
+    font-size: 1.5rem;
+  }
+  
+  .formRow {
+    grid-template-columns: 1fr;
+  }
+  
+  .formActions {
+    flex-direction: column-reverse;
+  }
+  
+  .cancelButton,
+  .submitButton {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .section {
+    padding: 1rem;
+  }
+  
+  .section h3 {
+    font-size: 1rem;
+  }
+}
+
+/* Focus styles for accessibility */
+.cancelButton:focus,
+.submitButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(80, 185, 183, 0.3);
+}
+
+/* Loading state improvements */
+.submitButton:disabled .spinner {
+  margin-right: 0.25rem;
+}
+
+/* Form validation styles */
+.formGroup input:invalid {
+  border-color: rgba(239, 68, 68, 0.5);
+}
+
+.formGroup input:invalid:focus {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+/* Success state for future use */
+.formGroup input:valid:not(:placeholder-shown) {
+  border-color: rgba(97, 188, 142, 0.5);
+}
+
+/* Custom select arrow */
+.formGroup select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.5rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+  padding-right: 2.5rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Brand Selection Styles */
+.brandGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.brandButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background: rgba(31, 41, 55, 0.5);
+  border: 2px solid rgba(75, 85, 99, 0.3);
+  border-radius: 8px;
+  color: #e5e7eb;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 100px;
+  aspect-ratio: 1;
+}
+
+.brandButton:hover {
+  border-color: #50B9B7;
+  background: rgba(80, 185, 183, 0.1);
+}
+
+.brandButton.selected {
+  border-color: #50B9B7;
+  background: rgba(80, 185, 183, 0.2);
+  box-shadow: 0 0 0 2px rgba(80, 185, 183, 0.3);
+}
+
+.brandLogo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.brandLogoFallback {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #50B9B7, #448382);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.brandName {
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.2;
+}

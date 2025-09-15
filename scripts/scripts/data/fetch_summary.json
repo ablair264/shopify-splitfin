@@ -1,0 +1,18 @@
+[
+  {
+    "fetchDate": "2025-09-13T23:39:26.418Z",
+    "dateRange": {
+      "start": "2025-09-01",
+      "end": "2025-09-13"
+    },
+    "duration": 68,
+    "counts": {
+      "items": 291,
+      "invoices": {
+        "basic": 117,
+        "detailed": 117
+      },
+      "packages": 142
+    }
+  }
+]

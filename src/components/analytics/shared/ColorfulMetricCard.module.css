@@ -1,0 +1,221 @@
+.colorfulMetricCard {
+  position: relative;
+  border-radius: 20px;
+  padding: 24px;
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Color Variants with Gradients */
+.colorPurple {
+  --gradient-start: #7c3aed;
+  --gradient-end: #a78bfa;
+  color: white;
+}
+
+.colorBlue {
+  --gradient-start: #3b82f6;
+  --gradient-end: #60a5fa;
+  color: white;
+}
+
+.colorOrange {
+  --gradient-start: #f97316;
+  --gradient-end: #fb923c;
+  color: white;
+}
+
+.colorGreen {
+  --gradient-start: #10b981;
+  --gradient-end: #34d399;
+  color: white;
+}
+
+.colorRed {
+  --gradient-start: #ef4444;
+  --gradient-end: #f87171;
+  color: white;
+}
+
+.colorYellow {
+  --gradient-start: #f59e0b;
+  --gradient-end: #fbbf24;
+  color: white;
+}
+
+/* Hover Effects */
+.colorfulMetricCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Header Section */
+.metricCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.metricCardIcon {
+  font-size: 28px;
+  opacity: 0.9;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.metricTrend {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.metricTrend.positive {
+  background: rgba(16, 185, 129, 0.2);
+}
+
+.metricTrend.negative {
+  background: rgba(239, 68, 68, 0.2);
+}
+
+/* Body Section */
+.metricCardBody {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.metricTitle {
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.9;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.metricValue {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1;
+  margin: 8px 0;
+  letter-spacing: -0.5px;
+}
+
+.metricSubtitle {
+  font-size: 13px;
+  opacity: 0.8;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Background Pattern */
+.colorfulMetricCard::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -30%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .colorfulMetricCard {
+    padding: 20px;
+    min-height: 140px;
+  }
+  
+  .metricCardIcon {
+    font-size: 24px;
+  }
+  
+  .metricValue {
+    font-size: 28px;
+  }
+  
+  .metricTitle {
+    font-size: 13px;
+  }
+  
+  .metricSubtitle {
+    font-size: 12px;
+  }
+}
+
+/* Animation for CountUp */
+.metricValue span {
+  display: inline-block;
+}
+
+/* Chart Styles */
+.metricCardChart {
+  margin-top: 16px;
+  height: 60px;
+  overflow: hidden;
+}
+
+.chartContainer {
+  width: 100%;
+  height: 100%;
+}
+
+.chartSvg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Loading State */
+.colorfulMetricCard.loading .metricValue {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.3) 25%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.3) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  color: transparent;
+  border-radius: 4px;
+  min-width: 100px;
+  display: inline-block;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Grid Layout Helper */
+.metricCardsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .metricCardsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .metricCardsGrid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,639 @@
+/* CustomerDetail.module.css */
+
+.customerDetailContainer {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: linear-gradient(135deg,#0f1419,#1a1f2a 50%,#2c3e50);
+  color: var(--text-primary);
+}
+
+/* Header */
+.detailHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #374151;
+}
+
+.backButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(121, 213, 233, 0.1);
+  border: 1px solid rgba(121, 213, 233, 0.3);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: #ffffff;
+  font-size: 0.875rem;
+}
+
+.backButton:hover {
+  background: rgba(121, 213, 233, 0.2);
+  transform: translateY(-1px);
+}
+
+.headerInfo {
+  flex: 1;
+  margin: 0 2rem;
+}
+
+.customerNameSection {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.headerInfo h1 {
+  font-size: 2rem;
+  margin: 0;
+  color: #ffffff;
+  background: linear-gradient(135deg, #79d5e9 0%, #4daeac 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.headerBadges {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.customerStatusBadge,
+.customerTypeBadge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.customerStatusBadge.active {
+  background: linear-gradient(135deg, #61bc8e 0%, #4daeac 100%);
+  color: white;
+}
+
+.customerStatusBadge.inactive {
+  background: #6b7280;
+  color: white;
+}
+
+.customerTypeBadge {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  color: white;
+}
+
+.headerActions {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Financial Health Summary */
+.financialHealthSummary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Tabs */
+.customerDetailTabs {
+  display: flex;
+  gap: 0.5rem;
+  border-bottom: 2px solid #374151;
+  margin-bottom: 2rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tab {
+  padding: 0.75rem 1.5rem;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #9ca3af;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.tab:hover {
+  color: #ffffff;
+}
+
+.tab.active {
+  color: #79d5e9;
+  border-bottom-color: #79d5e9;
+}
+
+/* Tab Content */
+.customerTabContent {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Overview Tab */
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.infoSection {
+  background: #1a1f2a;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  border: 1px solid #374151;
+}
+
+.customerInfoSection h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.infoItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(75, 85, 99, 0.3);
+}
+
+.infoItem:last-child {
+  border-bottom: none;
+}
+
+.infoItem .label {
+  color: #9ca3af;
+  font-size: 0.875rem;
+}
+
+.infoItem .value {
+  font-weight: 500;
+  color: #ffffff;
+}
+
+/* Addresses Section */
+.addressesSection {
+  margin-top: 2rem;
+}
+
+.addressesSection h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.addressGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.addressCard {
+  background: #1a1f2a;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  border: 1px solid #374151;
+}
+
+.addressCard h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #79d5e9;
+}
+
+.addressCard p {
+  margin: 0.25rem 0;
+  color: #d1d5db;
+}
+
+/* Address with Map Layout */
+.addressWithMap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  background: #1a1f2a;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  border: 1px solid #374151;
+}
+
+.addressText {
+  display: flex;
+  flex-direction: column;
+}
+
+.addressText h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #79d5e9;
+}
+
+.addressText p {
+  margin: 0.25rem 0;
+  color: #d1d5db;
+  font-size: 0.925rem;
+}
+
+.addressMap {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Financial Tab */
+.financialGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.financialCard {
+  background: #1a1f2a;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  border: 1px solid #374151;
+}
+
+.financialCard h3 {
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.financialItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(75, 85, 99, 0.3);
+}
+
+.financialItem:last-child {
+  border-bottom: none;
+}
+
+.financialItem .label {
+  color: #9ca3af;
+}
+
+.financialItem .value {
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* Contacts Tab */
+.contactsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.contactCard {
+  background: #1a1f2a;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  border: 1px solid #374151;
+  transition: transform 0.2s;
+}
+
+.contactCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.contactHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.contactHeader h4 {
+  margin: 0;
+  font-size: 1.125rem;
+  color: #ffffff;
+}
+
+.primaryBadge {
+  background: linear-gradient(135deg, #79d5e9 0%, #4daeac 100%);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.contactInfo p {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+  color: #d1d5db;
+  font-size: 0.875rem;
+}
+
+.contactActions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Orders Tab */
+.ordersList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.orderItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #1a1f2a;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+  border: 1px solid #374151;
+}
+
+.orderItem:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.orderInfo h4 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+.orderInfo p {
+  margin: 0;
+  color: #9ca3af;
+  font-size: 0.875rem;
+}
+
+.orderAmount {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* Status badges */
+.status {
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.status.green,
+.status.delivered,
+.status.confirmed {
+  background: rgba(97, 188, 142, 0.1);
+  color: #61bc8e;
+  border: 1px solid rgba(97, 188, 142, 0.3);
+}
+
+.status.yellow,
+.status.processing,
+.status.shipped {
+  background: rgba(251, 191, 36, 0.1);
+  color: #fbbf24;
+  border: 1px solid rgba(251, 191, 36, 0.3);
+}
+
+.status.red,
+.status.cancelled,
+.status.returned {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.status.pending {
+  background: rgba(139, 92, 246, 0.1);
+  color: #8b5cf6;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+/* Buttons */
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: white;
+}
+
+.btnPrimary {
+  background: linear-gradient(135deg, #79d5e9 0%, #4daeac 100%);
+}
+
+.btnPrimary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(121, 213, 233, 0.4);
+}
+
+.btnSecondary {
+  background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
+}
+
+.btnSecondary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(107, 114, 128, 0.4);
+}
+
+.btnSmall {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+.fullWidth {
+  width: 100%;
+  justify-content: center;
+}
+
+/* Loading State */
+.customerDetailLoading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  color: #9ca3af;
+}
+
+/* Error State */
+.customerDetailError {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.customerDetailError h2 {
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+/* iPad-specific styles */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .customerDetailContainer {
+    padding: 1.5rem;
+    max-width: 100%;
+  }
+
+  .detailHeader {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .financialHealthSummary {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+
+  .infoGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .addressGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .addressWithMap {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .orderCard {
+    padding: 1rem;
+  }
+
+  .customerDetailTabs {
+    overflow-x: visible;
+  }
+
+  .tab {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .customerDetailContainer {
+    padding: 1rem;
+  }
+
+  .detailHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .headerInfo {
+    margin: 0;
+  }
+
+  .headerInfo h1 {
+    font-size: 1.5rem;
+  }
+
+  .headerActions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .headerActions .btn {
+    width: 100%;
+  }
+
+  .financialHealthSummary {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .customerDetailTabs {
+    gap: 0.25rem;
+  }
+
+  .tab {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  .infoGrid,
+  .financialGrid,
+  .addressGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .addressWithMap {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .customerNameSection {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .infoSection,
+  .financialCard,
+  .addressCard {
+    padding: 1rem;
+  }
+
+  .contactsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .orderItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+  }
+}

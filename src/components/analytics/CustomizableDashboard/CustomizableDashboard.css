@@ -1,0 +1,313 @@
+.customizable-dashboard {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Dashboard Header */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 1.6rem;
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--border-primary);
+}
+
+/* Dashboard Actions Bar */
+.dashboard-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1.6rem;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-primary);
+}
+
+.actions-left {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.actions-right {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.unsaved-indicator {
+  font-size: 0.7rem;
+  color: var(--color-warning, #f59e0b);
+  font-weight: 500;
+  padding: 0.2rem 0.6rem;
+  background: rgba(245, 158, 11, 0.1);
+  border-radius: 0.8rem;
+}
+
+.header-actions {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-primary);
+  border-radius: 0.4rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.action-btn:hover {
+  background: var(--bg-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.action-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.action-btn:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.add-widget-btn {
+  background: var(--color-primary, #3b82f6);
+  color: #ffffff !important;
+  border-color: var(--color-primary, #3b82f6);
+}
+
+.add-widget-btn:hover {
+  background: var(--color-accent, #2563eb);
+  border-color: var(--color-accent, #2563eb);
+  color: #ffffff !important;
+}
+
+.save-btn {
+  background: #22c55e;
+  color: white;
+  border-color: #22c55e;
+}
+
+.save-btn:hover {
+  background: #16a34a;
+  border-color: #16a34a;
+}
+
+.edit-mode-btn.active {
+  background: #ef4444;
+  color: white;
+  border-color: #ef4444;
+}
+
+.edit-mode-btn.active:hover {
+  background: #dc2626;
+  border-color: #dc2626;
+}
+
+/* Dashboard Grid */
+.dashboard-grid-container {
+  flex: 1;
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.dashboard-grid {
+  padding: 1.2rem;
+  min-height: calc(100vh - 160px);
+  gap: 13px;
+}
+
+.dashboard-grid-container.drag-over {
+  background: rgba(121, 213, 233, 0.05);
+  border: 2px dashed rgba(121, 213, 233, 0.3);
+  border-radius: 12px;
+  margin: 8px;
+}
+
+.dashboard-grid-container.drag-over::before {
+  content: 'Drop widget here';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(121, 213, 233, 0.8);
+  font-size: 1.5rem;
+  font-weight: 600;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Widget Wrapper */
+.dashboard-widget-wrapper {
+  position: relative;
+  height: 100%;
+  background: var(--bg-primary);
+  border-radius: 0.6rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+  overflow: hidden;
+}
+
+.dashboard-widget-wrapper:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Widget Edit Overlay */
+.widget-edit-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4rem;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(4px);
+  z-index: 10;
+  opacity: 0;
+  transition: all 0.2s ease;
+  border-radius: 0.6rem 0.6rem 0 0;
+}
+
+.dashboard-widget-wrapper:hover .widget-edit-overlay {
+  opacity: 1;
+}
+
+.widget-drag-handle {
+  display: flex;
+  align-items: center;
+  padding: 0.2rem 0.4rem;
+  color: white;
+  cursor: move;
+}
+
+.widget-config-btn,
+.widget-remove-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.3rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.widget-config-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.widget-remove-btn:hover {
+  background: #ef4444;
+  border-color: #ef4444;
+}
+
+/* React Grid Layout Overrides */
+.react-grid-item {
+  transition: all 0.2s ease;
+  background: transparent !important;
+  border: none !important;
+}
+
+.react-grid-item.react-grid-placeholder {
+  background: var(--color-primary);
+  opacity: 0.2;
+  border-radius: 0.6rem;
+}
+
+.react-grid-item.resizing {
+  opacity: 0.9;
+}
+
+.react-grid-item.static {
+  background: #ccc;
+}
+
+.react-resizable-handle {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2IDYiIHN0eWxlPSJiYWNrZ3JvdW5kLWNvbG9yOiNmZmZmZmYwMCIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI2cHgiIGhlaWdodD0iNnB4Ij48ZyBvcGFjaXR5PSIwLjMwMiI+PHBhdGggZD0iTSA2IDYgTCAwIDYgTCAwIDQuMiBMIDQgNC4yIEwgNC4yIDQuMiBMIDQuMiAwIEwgNiAwIEwgNiA2IEwgNiA6IFoiIGZpbGw9IiMwMDAwMDAiLz48L2c+PC9zdmc+');
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  background-origin: content-box;
+  box-sizing: border-box;
+  cursor: se-resize;
+}
+
+.react-resizable-handle::after {
+  content: '';
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
+  width: 4px;
+  height: 4px;
+  border-right: 2px solid rgba(0, 0, 0, 0.4);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.4);
+}
+
+/* Custom Scrollbar Styling */
+.dashboard-grid-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.dashboard-grid-container::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 3px;
+}
+
+.dashboard-grid-container::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+.dashboard-grid-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Hide scrollbars on individual widgets */
+.dashboard-widget-wrapper {
+  overflow: hidden;
+}
+
+.react-grid-item {
+  overflow: hidden;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .dashboard-header {
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 0.8rem;
+  }
+
+  .header-left,
+  .header-actions {
+    width: 100%;
+  }
+
+  .header-actions {
+    justify-content: flex-end;
+  }
+
+  .dashboard-grid {
+    padding: 0.8rem;
+  }
+}

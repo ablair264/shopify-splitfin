@@ -1,0 +1,232 @@
+/* ActivityCard.module.css */
+
+.activityCardContainer {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: #ffffff;
+}
+
+.loadingState,
+.errorState {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.emptyState {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  padding: 48px 24px;
+}
+
+.activitiesSimple {
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  padding: 0 4px;
+  position: relative;
+}
+
+.activitiesSimple::-webkit-scrollbar {
+  display: none; /* WebKit */
+}
+
+/* Timeline line that runs down the left side connecting icons */
+.activitiesSimple::before {
+  content: '';
+  position: absolute;
+  left: 40px; /* Center of icon circles */
+  top: 50px; /* Start after first icon center */
+  height: calc(100% - 80px); /* Dynamic height */
+  width: 2px;
+  background: rgba(255, 255, 255, 0.15);
+  z-index: 0; /* Behind everything */
+}
+
+.activityItem {
+  position: relative;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.activityItem:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
+.activityContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.activityIcon {
+  width: 72px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+  position: relative;
+  flex-shrink: 0;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.activityCard {
+  background: rgba(15, 20, 25, 0.8);
+  border: 1px solid rgba(121, 213, 233, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+  position: relative;
+  flex: 1;
+  padding-top: 16px;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.activityItem:hover .activityCard {
+  background: rgba(15, 20, 25, 0.9);
+  transform: translateX(2px);
+  border-color: rgba(121, 213, 233, 0.2);
+}
+
+.activityMain {
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+}
+
+.activityRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  position: absolute;
+  top: 16px;
+  right: 20px;
+}
+
+.activityInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-right: 120px;
+}
+
+.activityTitle {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #ffffff;
+  margin: 0 0 4px 0;
+}
+
+.activityCompany {
+  font-size: 13px;
+  line-height: 1.3;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+.activityAmount {
+  font-size: 16px;
+  font-weight: 700;
+  text-align: right;
+  color: #22c55e;
+  margin: 0;
+}
+
+.activityTime {
+  font-size: 12px;
+  font-weight: 500;
+  opacity: 0.8;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .activityCardContainer {
+    padding: 12px;
+    min-height: 250px;
+  }
+  
+  .cardHeader {
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+  }
+  
+  .cardTitle {
+    font-size: 1rem;
+  }
+  
+  .cardSubtitle {
+    font-size: 0.8rem;
+  }
+  
+  .activityItem {
+    margin-bottom: 12px;
+  }
+  
+  .activityIcon {
+    width: 60px;
+    height: 28px;
+  }
+  
+  .activityMain {
+    padding: 12px 16px;
+  }
+  
+  .activityInfo {
+    padding-right: 100px;
+  }
+  
+  .activityTitle {
+    font-size: 13px;
+  }
+  
+  .activityCompany {
+    font-size: 12px;
+  }
+  
+  .activityAmount {
+    font-size: 14px;
+  }
+  
+  .activityTime {
+    font-size: 11px;
+  }
+  
+  .activitiesSimple::before {
+    left: 34px;
+    top: 40px;
+    height: calc(100% - 60px);
+  }
+}

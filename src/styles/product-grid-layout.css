@@ -1,0 +1,90 @@
+/* Product Grid Layout - Prevents overlapping when sidebar collapses */
+
+/* Base grid container styles */
+.product-cards-container,
+.product-grid-view,
+.products-grid-container {
+  display: grid;
+  /* Start with auto-fill but limit maximum columns */
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+  /* Prevent overflow */
+  overflow-x: hidden;
+}
+
+/* Maximum 4 columns on very large screens */
+@media (min-width: 1600px) {
+  .product-cards-container,
+  .product-grid-view,
+  .products-grid-container {
+    grid-template-columns: repeat(4, minmax(320px, 1fr));
+    max-width: 1440px;
+  }
+}
+
+/* Maximum 3 columns on large screens */
+@media (min-width: 1200px) and (max-width: 1599px) {
+  .product-cards-container,
+  .product-grid-view,
+  .products-grid-container {
+    grid-template-columns: repeat(3, minmax(320px, 1fr));
+    max-width: 1080px;
+  }
+}
+
+/* 2 columns on medium screens */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .product-cards-container,
+  .product-grid-view,
+  .products-grid-container {
+    grid-template-columns: repeat(2, minmax(320px, 1fr));
+    max-width: 720px;
+  }
+}
+
+/* Single column on small screens */
+@media (max-width: 767px) {
+  .product-cards-container,
+  .product-grid-view,
+  .products-grid-container {
+    grid-template-columns: 1fr;
+    padding: 15px;
+    gap: 15px;
+    max-width: 400px;
+  }
+}
+
+/* When sidebar is collapsed - ensure proper constraints */
+.sidebar-collapsed .product-cards-container,
+.sidebar-collapsed .product-grid-view,
+.sidebar-collapsed .products-grid-container,
+.main-content.expanded .product-cards-container,
+.main-content.expanded .product-grid-view,
+.main-content.expanded .products-grid-container {
+  /* Force maximum 4 columns even with extra space */
+  grid-template-columns: repeat(auto-fill, minmax(320px, 340px));
+  justify-content: center;
+}
+
+/* Ensure cards don't get too wide */
+.new-product-card {
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+/* Wrapper for the entire products section */
+.products-section {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Utility class to apply to parent containers */
+.grid-container-wrapper {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}

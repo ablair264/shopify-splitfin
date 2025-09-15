@@ -1,0 +1,213 @@
+/* FullGraph.module.css - Dark Theme Full Graph Component */
+
+.fullGraphContainer {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 16px;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  margin: 0;
+}
+
+/* Header */
+.fullGraphHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.graphHeaderLeft {
+  flex: 1;
+  min-width: 200px;
+}
+
+.graphTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 4px 0;
+}
+
+.graphSubtitle {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.graphHeaderRight {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Period selector */
+.periodSelector {
+  display: flex;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 4px;
+  gap: 2px;
+}
+
+.periodButton {
+  background: none;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.periodButton:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.periodButton.active {
+  background: var(--primary-color);
+  color: var(--background-light);
+  font-weight: 500;
+}
+
+/* Graph actions */
+.graphActions {
+  display: flex;
+  gap: 8px;
+}
+
+.graphActionButton {
+  background: none;
+  border: 1px solid var(--border-color);
+  padding: 8px;
+  border-radius: 6px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+}
+
+.graphActionButton:hover {
+  background: var(--hover-bg);
+  color: var(--text-primary);
+  border-color: rgba(121, 213, 233, 0.3);
+}
+
+/* Graph content */
+.fullGraphContent {
+  position: relative;
+  width: 100%;
+  padding-bottom: 8px;
+}
+
+/* Chart.js customization */
+.fullGraphContainer canvas {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* Loading state */
+.fullGraphContainer.loading .fullGraphContent {
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.fullGraphContainer.loading .fullGraphContent::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(121, 213, 233, 0.1), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .fullGraphContainer {
+    padding: 20px;
+    margin: 16px;
+  }
+  
+  .fullGraphHeader {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .graphTitle {
+    font-size: 18px;
+  }
+  
+  .graphSubtitle {
+    font-size: 13px;
+  }
+  
+  .graphHeaderRight {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .periodSelector {
+    flex: 1;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .periodButton {
+    padding: 4px 12px;
+    font-size: 12px;
+  }
+  
+  .graphActionButton {
+    padding: 6px;
+    width: 32px;
+    height: 32px;
+  }
+  
+  .fullGraphContent {
+    margin: 0 -10px;
+  }
+}
+
+/* Fullscreen mode */
+.fullGraphContainer.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  margin: 0;
+  border-radius: 0;
+  max-width: none;
+}
+
+.fullGraphContainer.fullscreen .fullGraphContent {
+  height: calc(100vh - 120px);
+}

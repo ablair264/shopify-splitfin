@@ -1,0 +1,244 @@
+/* src/components/ProgressBar.module.css */
+
+.progressBarWrapper {
+  width: 100%;
+  background: transparent;
+  position: relative;
+  z-index: 50;
+  padding: 1rem 1rem;
+  min-height: 80px;
+  border-bottom: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
+}
+
+.progressBar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 4px 0;
+}
+
+/* Progress Step */
+.progressStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+/* Step Indicator Circle */
+.stepIndicator {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Step Content */
+.stepContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-width: 100px;
+  min-height: 45px;
+  justify-content: flex-start;
+}
+
+.stepLabel {
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 2px;
+  transition: color 0.3s ease;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.stepSubLabel {
+  font-size: 10px;
+  font-weight: 400;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Progress Connector Line */
+.progressConnector {
+  flex: 1;
+  height: 2px;
+  min-width: 60px;
+  max-width: 100px;
+  margin: 16px 12px 0;
+  position: relative;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.progressConnector.completed {
+  background: #10b981;
+}
+
+/* State Styles */
+/* Pending State - Already styled above as default */
+
+/* Active State */
+.progressStep.active .stepIndicator {
+  background: #79d5e9;
+  border: 2px solid #79d5e9;
+  box-shadow: 0 0 0 4px rgba(121, 213, 233, 0.15);
+  animation: pulse 2s infinite;
+  color: #0f1419;
+}
+
+.progressStep.active .stepLabel {
+  color: #ffffff;
+}
+
+.progressStep.active .stepSubLabel {
+  opacity: 1;
+  color: #79d5e9;
+}
+
+/* Completed State */
+.progressStep.completed .stepIndicator {
+  background: #10b981;
+  border: 2px solid #10b981;
+  color: #ffffff;
+}
+
+.progressStep.completed .stepLabel {
+  color: #10b981;
+}
+
+.progressStep.completed .stepSubLabel {
+  opacity: 1;
+  color: #10b981;
+}
+
+/* Theme Variations */
+.light {
+  background: #f8fafc;
+  border-bottom-color: #e2e8f0;
+}
+
+.light .stepIndicator {
+  background: rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.3);
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.light .stepLabel {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.light .stepSubLabel {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.light .progressConnector {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.light .progressStep.active .stepLabel {
+  color: #000000;
+}
+
+/* Animation */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(121, 213, 233, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(121, 213, 233, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(121, 213, 233, 0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .progressBarWrapper {
+    padding: 0.75rem 0.5rem;
+    overflow-x: auto;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: touch;
+    min-height: 60px;
+  }
+  
+  .progressBar {
+    min-width: 500px;
+    padding: 0 1rem;
+  }
+  
+  .stepIndicator {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+  
+  .stepContent {
+    min-width: 80px;
+    min-height: 40px;
+  }
+  
+  .stepLabel {
+    font-size: 11px;
+  }
+  
+  .stepSubLabel {
+    font-size: 9px;
+  }
+  
+  .progressConnector {
+    min-width: 50px;
+    margin: 14px 8px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .progressBarWrapper {
+    min-height: 50px;
+    padding: 0.5rem 0.25rem;
+  }
+  
+  .stepIndicator {
+    width: 24px;
+    height: 24px;
+    font-size: 10px;
+  }
+  
+  .progressConnector {
+    min-width: 40px;
+    margin: 12px 6px 0;
+  }
+  
+  .progressBar {
+    min-width: 420px;
+  }
+  
+  .stepContent {
+    min-width: 70px;
+    min-height: 35px;
+  }
+  
+  .stepLabel {
+    font-size: 10px;
+  }
+  
+  .stepSubLabel {
+    font-size: 8px;
+  }
+}

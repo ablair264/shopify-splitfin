@@ -1,0 +1,611 @@
+/* DataTable.module.css - Container Queries Version */
+
+.dataTableContainer {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  border: 1px solid #f0f0f0;
+  
+  /* Enable container queries */
+  container-type: inline-size;
+  container-name: data-table;
+}
+
+/* Container queries for container size adjustments */
+@container data-table (max-width: 600px) {
+  .dataTableContainer {
+    border-radius: 12px;
+  }
+}
+
+@container data-table (max-width: 400px) {
+  .dataTableContainer {
+    border-radius: 8px;
+  }
+}
+
+.dataTable {
+  width: 100%;
+  overflow-x: auto;
+  
+  /* Enable container queries for table */
+  container-type: inline-size;
+}
+
+/* Table Header with container queries */
+.tableHeader {
+  background: #79d5e9;
+  border-bottom: 2px solid #f0f0f0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.tableHeader .tableRow {
+  display: flex;
+  padding: 0;
+  min-width: fit-content;
+}
+
+.headerCell {
+  font-weight: 600;
+  color: #1a1a1a;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  padding: 16px 20px;
+  white-space: nowrap;
+}
+
+/* Container queries for header cells */
+@container (max-width: 600px) {
+  .headerCell {
+    padding: 12px 16px;
+    font-size: 11px;
+  }
+}
+
+@container (max-width: 400px) {
+  .headerCell {
+    padding: 10px 12px;
+    font-size: 10px;
+    letter-spacing: 0.3px;
+  }
+}
+
+@container (max-width: 300px) {
+  .headerCell {
+    padding: 8px 10px;
+    font-size: 9px;
+  }
+}
+
+/* Table Body */
+.tableBody {
+  min-height: 200px;
+  
+  /* Enable container queries for table body */
+  container-type: inline-size;
+}
+
+/* Container queries for table body height */
+@container data-table (max-width: 400px) {
+  .tableBody {
+    min-height: 150px;
+  }
+}
+
+@container data-table (max-width: 300px) {
+  .tableBody {
+    min-height: 120px;
+  }
+}
+
+.tableRow {
+  display: flex;
+  border-bottom: 1px solid #f0f0f0;
+  transition: all 0.2s ease;
+  min-width: fit-content;
+  background: white;
+}
+
+.tableRow:last-child {
+  border-bottom: none;
+}
+
+.tableRow.clickable {
+  cursor: pointer;
+}
+
+.tableRow.clickable:hover {
+  background: #f8f9fa;
+}
+
+.tableCell {
+  padding: 16px 20px;
+  font-size: 14px;
+  color: #4a5568;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* Container queries for table cells */
+@container (max-width: 600px) {
+  .tableCell {
+    padding: 12px 16px;
+    font-size: 13px;
+  }
+}
+
+@container (max-width: 400px) {
+  .tableCell {
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+}
+
+@container (max-width: 300px) {
+  .tableCell {
+    padding: 8px 10px;
+    font-size: 11px;
+  }
+}
+
+@container (max-width: 200px) {
+  .tableCell {
+    padding: 6px 8px;
+    font-size: 10px;
+  }
+}
+
+/* Cell Content Styles with container queries */
+.customerInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  
+  /* Enable container queries for customer info */
+  container-type: inline-size;
+}
+
+@container (max-width: 200px) {
+  .customerInfo {
+    gap: 2px;
+  }
+}
+
+.customerInfo strong {
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+.customerInfo .companyName {
+  font-size: 13px;
+  color: #718096;
+}
+
+/* Container queries for company name */
+@container (max-width: 400px) {
+  .customerInfo .companyName {
+    font-size: 12px;
+  }
+}
+
+@container (max-width: 300px) {
+  .customerInfo .companyName {
+    font-size: 11px;
+  }
+}
+
+@container (max-width: 200px) {
+  .customerInfo .companyName {
+    display: none; /* Hide company name on very small tables */
+  }
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  
+  /* Enable container queries for contact info */
+  container-type: inline-size;
+}
+
+@container (max-width: 250px) {
+  .contactInfo {
+    gap: 1px;
+  }
+}
+
+.contactInfo .email {
+  color: #4a5568;
+}
+
+.contactInfo .phone {
+  font-size: 13px;
+  color: #718096;
+}
+
+/* Container queries for contact info */
+@container (max-width: 400px) {
+  .contactInfo .phone {
+    font-size: 12px;
+  }
+}
+
+@container (max-width: 300px) {
+  .contactInfo .phone {
+    font-size: 11px;
+  }
+}
+
+@container (max-width: 200px) {
+  .contactInfo .phone {
+    display: none; /* Hide phone on very small tables */
+  }
+}
+
+/* Status Badge with container queries */
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: capitalize;
+  
+  /* Enable container queries for status badge */
+  container-type: inline-size;
+}
+
+@container (max-width: 300px) {
+  .statusBadge {
+    padding: 3px 8px;
+    font-size: 11px;
+    border-radius: 16px;
+  }
+}
+
+@container (max-width: 200px) {
+  .statusBadge {
+    padding: 2px 6px;
+    font-size: 10px;
+    border-radius: 12px;
+  }
+}
+
+.statusBadge.statusActive {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.statusBadge.statusInactive {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.statusBadge.statusPending {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+/* Action Buttons with container queries */
+.actionButtons {
+  display: flex;
+  gap: 8px;
+  
+  /* Enable container queries for action buttons */
+  container-type: inline-size;
+}
+
+@container (max-width: 300px) {
+  .actionButtons {
+    gap: 6px;
+    flex-direction: column;
+  }
+}
+
+@container (max-width: 200px) {
+  .actionButtons {
+    gap: 4px;
+  }
+}
+
+.actionBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.actionBtn:hover {
+  background: #e5e7eb;
+  transform: translateY(-1px);
+}
+
+.actionBtn.primary {
+  background: #3b82f6;
+  color: white;
+}
+
+.actionBtn.primary:hover {
+  background: #2563eb;
+}
+
+/* Container queries for action buttons */
+@container (max-width: 400px) {
+  .actionBtn {
+    padding: 4px 10px;
+    font-size: 12px;
+    gap: 4px;
+  }
+}
+
+@container (max-width: 300px) {
+  .actionBtn {
+    padding: 3px 8px;
+    font-size: 11px;
+    border-radius: 6px;
+    justify-content: center;
+  }
+}
+
+@container (max-width: 200px) {
+  .actionBtn {
+    padding: 2px 6px;
+    font-size: 10px;
+    border-radius: 4px;
+  }
+  
+  .actionBtn span {
+    display: none; /* Hide text, show only icons on very small */
+  }
+}
+
+.actionBtn svg {
+  width: 14px;
+  height: 14px;
+}
+
+@container (max-width: 300px) {
+  .actionBtn svg {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+@container (max-width: 200px) {
+  .actionBtn svg {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+/* Empty State with container queries */
+.emptyState {
+  text-align: center;
+  padding: 60px 20px;
+  color: #718096;
+  
+  /* Enable container queries for empty state */
+  container-type: inline-size;
+}
+
+@container (max-width: 400px) {
+  .emptyState {
+    padding: 40px 16px;
+  }
+}
+
+@container (max-width: 300px) {
+  .emptyState {
+    padding: 30px 12px;
+  }
+}
+
+@container (max-width: 200px) {
+  .emptyState {
+    padding: 20px 8px;
+  }
+}
+
+.emptyState .emptyIcon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+@container (max-width: 400px) {
+  .emptyState .emptyIcon {
+    font-size: 36px;
+    margin-bottom: 12px;
+  }
+}
+
+@container (max-width: 300px) {
+  .emptyState .emptyIcon {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+}
+
+.emptyState h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0 0 8px 0;
+}
+
+@container (max-width: 400px) {
+  .emptyState h3 {
+    font-size: 16px;
+  }
+}
+
+@container (max-width: 300px) {
+  .emptyState h3 {
+    font-size: 14px;
+    margin: 0 0 6px 0;
+  }
+}
+
+.emptyState p {
+  font-size: 14px;
+  margin: 0;
+  color: #718096;
+}
+
+@container (max-width: 400px) {
+  .emptyState p {
+    font-size: 13px;
+  }
+}
+
+@container (max-width: 300px) {
+  .emptyState p {
+    font-size: 12px;
+  }
+}
+
+/* Loading State */
+.dataTable.loading .skeletonText {
+  height: 16px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 4px;
+}
+
+@container data-table (max-width: 300px) {
+  .dataTable.loading .skeletonText {
+    height: 12px;
+    border-radius: 3px;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Dark Mode Support with container awareness */
+@media (prefers-color-scheme: dark) {
+  .dataTableContainer {
+    background: #1a1a2e;
+    border-color: #2d2d44;
+  }
+  
+  .tableHeader {
+    background: #16162a;
+    border-bottom-color: #2d2d44;
+  }
+  
+  .headerCell {
+    color: #e0e0e0;
+  }
+  
+  .tableRow {
+    border-bottom-color: #2d2d44;
+    background: #1a1a2e;
+  }
+  
+  .tableRow.clickable:hover {
+    background: #252542;
+  }
+  
+  .tableCell {
+    color: #a0a0a0;
+  }
+  
+  .customerInfo strong {
+    color: #ffffff;
+  }
+  
+  .customerInfo .companyName {
+    color: #8b8b8b;
+  }
+  
+  .contactInfo .email {
+    color: #a0a0a0;
+  }
+  
+  .contactInfo .phone {
+    color: #8b8b8b;
+  }
+  
+  .actionBtn {
+    background: #2d2d44;
+    color: #e0e0e0;
+  }
+  
+  .actionBtn:hover {
+    background: #3a3a52;
+  }
+  
+  .emptyState h3 {
+    color: #e0e0e0;
+  }
+  
+  .emptyState p {
+    color: #8b8b8b;
+  }
+}
+
+/* Ultra-small table adaptations */
+@container data-table (max-width: 150px) {
+  .tableRow {
+    flex-direction: column;
+    padding: 8px;
+  }
+  
+  .tableCell {
+    padding: 4px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .tableCell:last-child {
+    border-bottom: none;
+  }
+  
+  .headerCell {
+    display: none; /* Hide headers in ultra-small mode */
+  }
+  
+  .tableCell::before {
+    content: attr(data-label) ": ";
+    font-weight: 600;
+    color: #718096;
+    font-size: 10px;
+    margin-right: 4px;
+  }
+}
+
+/* Handle very wide but short tables */
+@container data-table (min-width: 800px) and (max-height: 300px) {
+  .tableBody {
+    min-height: 150px;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+  
+  .headerCell,
+  .tableCell {
+    padding: 10px 16px;
+  }
+}

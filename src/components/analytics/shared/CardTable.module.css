@@ -1,0 +1,297 @@
+/* CardTable.module.css - Dark Theme Table Cards */
+
+.cardTableContainer {
+  background: var(--background-white);
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+  height: auto;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardTableContainer:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* Header */
+.cardTableHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.tableHeaderLeft {
+  flex: 1;
+}
+
+.tableTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary) !important;
+  margin: 0 0 4px 0;
+}
+
+.tableSubtitle {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.tableHeaderActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.viewAllButton {
+  background: var(--accent-cta);
+  color: var(--background-light);
+  border: none;
+  padding: 6px 16px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.viewAllButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(251, 191, 36, 0.3);
+}
+
+.tableOptionsButton {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  opacity: 0.5;
+}
+
+.cardTableContainer:hover .tableOptionsButton {
+  opacity: 1;
+}
+
+.tableOptionsButton:hover {
+  background: var(--hover-bg);
+  color: var(--text-primary);
+}
+
+/* Table content */
+.cardTableContent {
+  flex: 1;
+  overflow: auto;
+  min-height: 0;
+}
+
+.cardTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cardTable th {
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 500;
+  color: var(--text-secondary);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--border-color);
+  white-space: nowrap;
+}
+
+.cardTable td {
+  padding: 12px 16px;
+  color: var(--text-light);
+  font-size: 13px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Fix for TableCard text visibility */
+.tableContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.tableContent .tableRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  flex-wrap: wrap;
+}
+
+.tableContent .tableRow:last-child {
+  border-bottom: none;
+}
+
+.tableContent .tableRow .rank {
+  font-weight: 600;
+  color: var(--text-secondary) !important;
+  min-width: 30px;
+  flex-shrink: 0;
+}
+
+.tableContent .tableRow .name {
+  flex: 1;
+  font-weight: 500;
+  color: var(--text-light) !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+/* Fix for Most Orders (brands) text visibility */
+.mostOrdersBrands .tableRow .name {
+  color: var(--text-light) !important;
+  opacity: 1;
+}
+
+.tableContent .tableRow .value {
+  font-weight: 600;
+  color: var(--success-color) !important;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.tableContent .tableRow .subtext {
+  width: 100%;
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+  padding-left: 45px;
+}
+
+.cardTable tbody tr {
+  transition: background 0.2s;
+}
+
+.cardTable tbody tr:hover {
+  background: var(--hover-bg);
+}
+
+.cardTable tbody tr.clickable {
+  cursor: pointer;
+}
+
+.cardTable tbody tr.highlighted {
+  background: rgba(121, 213, 233, 0.05);
+}
+
+.cardTable tbody tr.highlighted:hover {
+  background: rgba(121, 213, 233, 0.08);
+}
+
+.cardTable tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Index column */
+.indexColumn {
+  width: 40px;
+  text-align: center !important;
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+/* Empty state */
+.emptyState {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 150px;
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+/* Footer */
+.cardTableFooter {
+  padding-top: 12px;
+  padding-bottom: 8px;
+  border-top: 1px solid var(--border-color);
+  margin-top: auto;
+}
+
+.moreItemsText {
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cardTableContainer {
+    min-height: 240px;
+    padding: 16px;
+  }
+  
+  .tableTitle {
+    font-size: 14px;
+  }
+  
+  .tableSubtitle {
+    font-size: 12px;
+  }
+  
+  .cardTable th,
+  .cardTable td {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+  
+  .cardTable th {
+    font-size: 11px;
+  }
+  
+  .viewAllButton {
+    padding: 4px 12px;
+    font-size: 11px;
+  }
+}
+
+/* Scrollbar styling */
+.cardTableContent::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.cardTableContent::-webkit-scrollbar-track {
+  background: var(--hover-bg);
+  border-radius: 3px;
+}
+
+.cardTableContent::-webkit-scrollbar-thumb {
+  background: rgba(121, 213, 233, 0.3);
+  border-radius: 3px;
+}
+
+.cardTableContent::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
+}
+
+/* Grid layout for card tables */
+.cardTablesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  padding: 0;
+}
+
+@media (max-width: 768px) {
+  .cardTablesGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}

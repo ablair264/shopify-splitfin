@@ -1,0 +1,69 @@
+/* CSS Variables - Global Theme Definition */
+:root {
+  /* Theme identifier */
+  --theme-name: 'splitfin';
+  --theme-type: 'dark';
+  
+  /* Primary Colors */
+  --color-primary: #1a1f2a;
+  --color-primary-hover: #34495e;
+  --color-primary-dark: #1a1f2a;
+  --color-accent: #79d5e9;
+  --color-accent-teal: #4daeac;
+  --color-accent-cta: #fbbf24;
+  
+  /* Status Colors */
+  --color-success: #4d9869;
+  --color-warning: #f8d824;
+  --color-error: #dd4444;
+  --color-info: #5171a6;
+  
+  /* Backgrounds */
+  --bg-primary: #0f1419;
+  --bg-secondary: #1a1f2a;
+  --bg-tertiary: #252b35;
+  --bg-hover: rgba(255, 255, 255, 0.05);
+  --bg-active: rgba(121, 213, 233, 0.1);
+  
+  /* Text Colors */
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-tertiary: rgba(255, 255, 255, 0.5);
+  --text-muted: rgba(255, 255, 255, 0.4);
+  --text-disabled: rgba(255, 255, 255, 0.3);
+  --text-on-primary: #0f1419;
+  --text-on-dark: #ffffff;
+  --text-light: #e5e7eb;
+  
+  /* Borders */
+  --border-primary: rgba(255, 255, 255, 0.1);
+  --border-secondary: rgba(255, 255, 255, 0.05);
+  --border-hover: var(--color-accent);
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 25px 50px rgba(0, 0, 0, 0.5);
+  
+  /* Sidebar Gradient */
+  --sidebar-gradient: linear-gradient(135deg, #34495d, #2c3e50, #1a1f2a);
+  
+  /* Logo */
+  --logo-url: 'splitfinrow.png';
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}

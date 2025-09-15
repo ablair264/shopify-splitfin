@@ -1,0 +1,261 @@
+.container {
+  background: linear-gradient(135deg, #1e293b 0%, #1a1f2a 100%);
+  border: 1px solid #334155;
+  border-radius: 16px;
+  position: relative;
+  display: flex;
+  min-height: 400px;
+  min-width: 600px;
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.accent {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, #06b6d4, #8b5cf6, #ef4444);
+}
+
+.content {
+  flex: 1;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.periodSelector {
+  display: flex;
+  background: #1a1f2a;
+  border: 1px solid #374151;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.periodBtn {
+  padding: 8px 16px;
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.periodBtn:hover {
+  background: #374151;
+  color: #d1d5db;
+}
+
+.periodBtn.active {
+  background: linear-gradient(135deg, #79d5e9 0%, #4daeac 100%);
+  color: white;
+}
+
+.chartContainer {
+  flex: 1;
+  margin-bottom: 24px;
+  background: linear-gradient(180deg, #2a3441 0%, #1e2532 100%);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #374151;
+  justify-content: center;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legendColor {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.legendLabel {
+  font-size: 0.875rem;
+  color: #e5e7eb;
+  font-weight: 400;
+}
+
+/* Tooltip styles */
+.tooltip {
+  background-color: #1a1f2a;
+  border: 1px solid #374151;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.tooltipLabel {
+  margin: 0 0 8px 0;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 0.875rem;
+}
+
+.tooltipItem {
+  margin: 0 0 4px 0;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.tooltipItem:last-child {
+  margin-bottom: 0;
+}
+
+/* Loading and error states */
+.loading,
+.error,
+.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  color: #9ca3af;
+  font-size: 0.875rem;
+  padding: 24px;
+}
+
+.error {
+  color: #ef4444;
+}
+
+/* Tablet specific styles */
+.tabletContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+}
+
+.pieContainer {
+  width: 100%;
+  max-width: 300px;
+}
+
+.dotLegend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  padding: 12px 0;
+}
+
+.dotItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.dotLabel {
+  font-size: 0.75rem;
+  color: #e5e7eb;
+  font-weight: 400;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .container {
+    min-height: 320px;
+  }
+}
+
+@media (max-width: 900px) {
+  .header {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  
+  .periodSelector {
+    width: 100%;
+  }
+  
+  .periodBtn {
+    flex: 1;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    min-width: unset;
+  }
+  
+  .content {
+    padding: 20px;
+  }
+  
+  .chartContainer {
+    height: 250px;
+  }
+  
+  .legend {
+    gap: 12px;
+  }
+  
+  .legendLabel {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    padding: 16px;
+  }
+  
+  .title {
+    font-size: 1rem;
+  }
+  
+  .chartContainer {
+    height: 200px;
+  }
+  
+  .periodBtn {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+  
+  .legend {
+    gap: 8px;
+  }
+}

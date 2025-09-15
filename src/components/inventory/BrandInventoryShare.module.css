@@ -1,0 +1,220 @@
+.container {
+  background: linear-gradient(135deg, #1e293b 0%, #1a1f2a 100%);
+  border: 1px solid #334155;
+  border-radius: 16px;
+  position: relative;
+  display: flex;
+  min-height: 400px;
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.accent {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, #10b981, #06b6d4, #8b5cf6);
+}
+
+.content {
+  flex: 1;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 0;
+}
+
+.title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.barsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  min-height: 0;
+}
+
+.brandItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 4px 0;
+  border-radius: 6px;
+}
+
+.brandItem:hover {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 4px 8px;
+}
+
+.brandHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brandLabel {
+  font-size: 0.8rem;
+  color: #e5e7eb;
+  font-weight: 400;
+}
+
+.brandPercent {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.brandBarContainer {
+  width: 100%;
+}
+
+.brandBar {
+  height: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.brandProgress {
+  height: 100%;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+  position: relative;
+}
+
+.brandItem:hover .brandProgress {
+  transform: scaleY(1.2);
+}
+
+/* Tooltip Area */
+.tooltipArea {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  min-height: 60px;
+}
+
+.tooltip {
+  background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+  border-radius: 8px;
+  padding: 12px 16px;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+}
+
+.tooltipLabel {
+  margin: 0 0 8px 0;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 0.875rem;
+}
+
+.tooltipDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tooltipValue,
+.tooltipPercent,
+.tooltipItems {
+  margin: 0;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+}
+
+.tooltipPlaceholder {
+  color: #64748b;
+  font-size: 0.75rem;
+  text-align: center;
+  padding: 20px 0;
+  font-style: italic;
+}
+
+/* Loading and error states */
+.loading,
+.error,
+.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+  color: #9ca3af;
+  font-size: 0.875rem;
+  padding: 24px;
+}
+
+.error {
+  color: #ef4444;
+}
+
+/* Responsive design */
+@media (max-width: 1366px) and (min-width: 769px) {
+  .container {
+    min-height: 320px;
+  }
+  
+  .barsContainer {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding: 16px 20px;
+    gap: 12px;
+  }
+  
+  .title {
+    font-size: 0.9rem;
+  }
+  
+  .brandLabel {
+    font-size: 0.75rem;
+  }
+  
+  .brandPercent {
+    font-size: 0.7rem;
+  }
+  
+  .brandBar {
+    height: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    min-height: 140px;
+  }
+  
+  .content {
+    padding: 14px 16px;
+    gap: 10px;
+  }
+  
+  .title {
+    font-size: 0.85rem;
+  }
+  
+  .barsContainer {
+    gap: 6px;
+  }
+  
+  .brandItem {
+    gap: 3px;
+  }
+}

@@ -1,0 +1,279 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.card {
+  background-color: #28323e;
+  border-radius: 12px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  aspect-ratio: auto;
+  min-height: 100px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+}
+
+.accentRed {
+  background-color: #ef4444;
+}
+
+.accentCyan {
+  background-color: #06b6d4;
+}
+
+.accentGreen {
+  background-color: #10b981;
+}
+
+.accentOrange {
+  background-color: #f59e0b;
+}
+
+.accentPurple {
+  background-color: #8b5cf6;
+}
+
+.accentBlue {
+  background-color: #3b82f6;
+}
+
+.content {
+  flex: 1;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 6px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.title {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 0.7rem;
+  color: #9ca3af;
+  font-weight: 400;
+  opacity: 0.8;
+  line-height: 1.1;
+}
+
+.chartArea {
+  display: none;
+}
+
+.value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1;
+  margin: 4px 0 0 0;
+}
+
+.valueRed {
+  color: #ef4444;
+}
+
+.valueCyan {
+  color: #06b6d4;
+}
+
+.valueGreen {
+  color: #10b981;
+}
+
+.valueOrange {
+  color: #f59e0b;
+}
+
+.valuePurple {
+  color: #8b5cf6;
+}
+
+.valueBlue {
+  color: #3b82f6;
+}
+
+/* Loading and error states */
+.loading,
+.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 180px;
+  color: #9ca3af;
+  font-size: 0.875rem;
+  grid-column: 1 / -1;
+  background-color: #28323e;
+  border-radius: 12px;
+}
+
+.error {
+  color: #ef4444;
+}
+
+/* The compact design is now used for all screen sizes */
+
+/* Responsive design */
+@media (max-width: 1200px) {
+  .content {
+    padding: 16px;
+    gap: 10px;
+  }
+  
+  .title {
+    font-size: 0.95rem;
+  }
+  
+  .subtitle {
+    font-size: 0.8rem;
+  }
+  
+  .value {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 1100px) {
+  .container {
+    gap: 0.5rem;
+  }
+  
+  .content {
+    padding: 12px;
+    gap: 6px;
+  }
+  
+  .title {
+    font-size: 0.8rem;
+    line-height: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .subtitle {
+    font-size: 0.7rem;
+    white-space: nowrap;
+  }
+  
+  .value {
+    font-size: 1.8rem;
+  }
+  
+  .chartArea {
+    min-height: 35px;
+  }
+}
+
+@media (max-width: 900px) {
+  .container {
+    gap: 0.75rem;
+  }
+  
+  .content {
+    padding: 14px;
+    gap: 8px;
+  }
+  
+  .title {
+    font-size: 0.85rem;
+    line-height: 1.1;
+  }
+  
+  .subtitle {
+    font-size: 0.75rem;
+  }
+  
+  .value {
+    font-size: 2rem;
+  }
+  
+  .chartArea {
+    min-height: 45px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .card {
+    aspect-ratio: auto;
+    min-height: 140px;
+  }
+  
+  .content {
+    padding: 16px;
+    gap: 10px;
+  }
+  
+  .value {
+    font-size: 2.2rem;
+  }
+  
+  .title {
+    font-size: 1rem;
+  }
+  
+  .subtitle {
+    font-size: 0.875rem;
+  }
+  
+  .chartArea {
+    min-height: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    min-height: 120px;
+  }
+  
+  .content {
+    padding: 14px;
+    gap: 8px;
+  }
+  
+  .value {
+    font-size: 1.8rem;
+  }
+  
+  .title {
+    font-size: 0.9rem;
+  }
+  
+  .subtitle {
+    font-size: 0.8rem;
+  }
+  
+  .chartArea {
+    min-height: 40px;
+  }
+}

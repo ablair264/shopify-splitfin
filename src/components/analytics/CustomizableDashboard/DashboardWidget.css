@@ -1,0 +1,226 @@
+.dashboard-widget {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+}
+
+/* Override MetricCard constraints when used in grid - but preserve compact layout and size modes */
+.dashboard-widget [class*="metricCardFull"]:not(.medium):not(.large) {
+  min-height: unset !important;
+  max-height: unset !important;
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Let medium and large cards keep their size constraints */
+.dashboard-widget [class*="metricCardFull"].medium,
+.dashboard-widget [class*="metricCardFull"].large {
+  height: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Don't override compact cards - they need horizontal layout */
+.dashboard-widget [class*="compactCard"] {
+  /* Let compact cards use their own CSS layout - don't override height */
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+/* Ensure chart area can expand */
+.dashboard-widget [class*="cardChart"] {
+  flex: 1 !important;
+  min-height: 0 !important;
+}
+
+/* Loading, Error, and Empty States */
+.widget-loading,
+.widget-error,
+.widget-empty,
+.widget-unknown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.widget-error {
+  color: var(--color-error, #ef4444);
+}
+
+/* Table Widget Wrapper */
+.widget-table-wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+}
+
+.widget-table-header {
+  margin-bottom: 1rem;
+}
+
+.widget-table-header h3 {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.widget-table-header p {
+  margin: 0.25rem 0 0;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+/* Activity Feed Widget */
+.widget-activity-feed {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.widget-activity-header {
+  margin-bottom: 1.5rem;
+}
+
+.widget-activity-header h3 {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.widget-activity-header p {
+  margin: 0.25rem 0 0;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.activity-list {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.activity-item {
+  display: flex;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border-primary);
+}
+
+.activity-item:last-child {
+  border-bottom: none;
+}
+
+.activity-icon {
+  flex-shrink: 0;
+}
+
+.icon-circle {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: var(--color-primary);
+  opacity: 0.1;
+}
+
+.activity-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.activity-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+
+.activity-action {
+  font-weight: 500;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+}
+
+.activity-time {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+}
+
+.activity-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+}
+
+.activity-customer {
+  color: var(--text-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.activity-amount {
+  font-weight: 600;
+  color: var(--color-primary);
+  white-space: nowrap;
+}
+
+/* Widget Type Specific Styles */
+.widget-metric {
+  /* Metric cards handle their own styling */
+}
+
+.widget-chart {
+  /* Charts handle their own styling */
+}
+
+.widget-table {
+  overflow: hidden;
+}
+
+.widget-activity {
+  overflow: hidden;
+}
+
+/* Display Format Specific Adjustments */
+.widget-metriccard > div,
+.widget-metriccardsquare > div,
+.widget-colorfulmetriccard > div {
+  height: 100%;
+}
+
+.widget-fullgraph {
+  padding: 0;
+}
+
+/* Scrollbar Styling */
+.activity-list::-webkit-scrollbar,
+.widget-table-wrapper ::-webkit-scrollbar {
+  width: 6px;
+}
+
+.activity-list::-webkit-scrollbar-track,
+.widget-table-wrapper ::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+  border-radius: 3px;
+}
+
+.activity-list::-webkit-scrollbar-thumb,
+.widget-table-wrapper ::-webkit-scrollbar-thumb {
+  background: var(--border-primary);
+  border-radius: 3px;
+}
+
+.activity-list::-webkit-scrollbar-thumb:hover,
+.widget-table-wrapper ::-webkit-scrollbar-thumb:hover {
+  background: var(--text-tertiary);
+}

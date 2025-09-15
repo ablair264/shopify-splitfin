@@ -1,0 +1,196 @@
+/* ActivityFeed.module.css */
+
+.activityFeedContainer {
+  border-radius: 12px;
+  padding: 16px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 300px;
+}
+
+.cardHeader {
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.cardSubtitle {
+  margin: 4px 0 0;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.loadingState {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+}
+
+.emptyState {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+}
+
+.activitiesSimple {
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+}
+
+.activitiesSimple::-webkit-scrollbar {
+  display: none; /* WebKit */
+}
+
+.activityItem {
+  position: relative;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.activityItem:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
+.activityContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.activityIcon {
+  width: 72px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.activityCard {
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  position: relative;
+  flex: 1;
+  margin-top: -16px;
+  padding-top: 16px;
+}
+
+.activityItem:hover .activityCard {
+  transform: translateX(2px);
+}
+
+.activityMain {
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+}
+
+.activityRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  position: absolute;
+  top: 16px;
+  right: 20px;
+}
+
+.activityInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-right: 120px;
+}
+
+.activityTitle {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.activityCompany {
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+.activityAmount {
+  font-size: 16px;
+  font-weight: 700;
+  text-align: right;
+}
+
+.activityTime {
+  font-size: 12px;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+/* Filter Bar */
+.filterBar {
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.filterList {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filterButton {
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: transparent;
+  outline: none;
+}
+
+.filterButton:hover {
+  transform: translateY(-1px);
+}
+
+.filterButton.active {
+  font-weight: 600;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 48px 24px;
+  font-size: 14px;
+}
